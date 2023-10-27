@@ -7,6 +7,7 @@
 % \usepackage{mathtools} % math tools builds upon amsmath, so only one of them is needed, note that mathtools has all the functions that amsmath has and even more
 \usepackage{amsmath ,amssymb,amsthm}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \renewcommand{\qed}{\hfill\blacksquare}
 \newcommand{\D}[1]{\Delta #1}
 \renewcommand{\a}{\alpha}
@@ -50,7 +51,7 @@
 % \newpage
 % Start of paper ---------------------------------------- %
 \section{הקדמה}
-בתרגול הזה נדבר על מודל $IS-LM$  בטווח הקצר במשק סגור בטווח הקצר
+בתרגול הזה נדבר על מודל $IS-LM$  בטווח הקצר במשק סגור 
 \section{הנחות המודל}
 \begin{itemize}
     \item התוצר נקבע בטווח קצר לפי ביקוש
@@ -108,9 +109,24 @@ $\D{i} = \dfrac{\D{A_0}}{b}$
 \subsection{עקומת $LM$ - שוק הכסף}
 עקומת LM היא עקומה אשר על גביה נמצאים אוסף הצירופים של תוצר וריבית אשר מביאים לשיווי משקל
 בשוק הכסף. 
-
-
-
-
+\begin{align*}
+    \begin{split}
+       LM : \left(\frac{M}{P}\right) ^ d  & = M ^ s \\ 
+       \left(\frac{M}{P}  \right) ^ d    & = M_0 + kY - hi 
+    \end{split}
+\end{align*}
+\begin{tikzpicture}[scale=1.5]
+     \node (equation) at (0,0) {$y = C + I + G$};
+     \node (consumption) at (-1.5,-1) {Consumption};
+     \node (investments) at (0,-1) {Investments};
+     \node (government) at (1.5,-1) {Government};
+     \draw[->] (consumption) -- (-1.5,-0.25);
+     \draw[->] (investments) -- (0,-0.25);
+     \draw[->] (government) -- (1.5,-0.25);
+\end{tikzpicture}
+\begin{tikzcd}[scale = 1.5]
+    & y \arrow[d, "C" description] \arrow[d, "I" description] \arrow[d, "G" description] \\
+    & C \arrow[r] & I \arrow[r] & G
+    \end{tikzcd}
 \end{RTL}
 \end{document}
