@@ -13,6 +13,7 @@
 \renewcommand{\a}{\alpha}
 % \newcommand{\a}{\alpha}
 \usepackage{cancel}
+\usepackage{float}
 % ============================================================ %
 
 % HEBREW support via polyglossia %
@@ -101,12 +102,13 @@ $\D{i} = \dfrac{\D{A_0}}{b}$
     \draw [blue] (0.5,3.5) -- (4.5,0.5) node[midway, above left] {};
     \node[right] at (3,3) {היצע עודף};
     \node[left] at (2.5,1) {ביקוש עודף};
+    \node[right] at (4.5,0.5) {$IS$};
 
 \end{tikzpicture}
 \newpage
 
 \begin{RTL}    
-\subsection{עקומת $LM$ - שוק הכסף}
+\section{עקומת $LM$ - שוק הכסף}
 עקומת LM היא עקומה אשר על גביה נמצאים אוסף הצירופים של תוצר וריבית אשר מביאים לשיווי משקל
 בשוק הכסף. 
 \begin{align*}
@@ -115,19 +117,89 @@ $\D{i} = \dfrac{\D{A_0}}{b}$
        \left(\frac{M}{P}  \right) ^ d    & = M_0 + kY - hi 
     \end{split}
 \end{align*}
-% \begin{tikzpicture}[scale=1.5]
-%      \node (equation) at (0,0) {$y = C + I + G$};
-%      \node (consumption) at (-1.5,-1) {Consumption};
-%      \node (investments) at (0,-1) {Investments};
-%      \node (government) at (1.5,-1) {Government};
-%      \draw[->] (consumption) -- (-1.5,-0.25);
-%      \draw[->] (investments) -- (0,-0.25);
-%      \draw[->] (government) -- (1.5,-0.25);
+\begin{itemize}
+    \item $M_0$ הינו מינע הביטחון
+    \item $k$ מניע עסקאות
+    \item $h$ מניע ספקולטיבי
+\end{itemize}
+
+\begin{equation*}
+    LM : i  = \frac{1}{h} \left[ky + M_0 - M^s \right]
+\end{equation*}
+
+\begin{tikzpicture}[scale=1.4]
+    \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+    \draw[->] (0,0) -- (0,5) node[above] {$i$};
+    % \draw[dashed] (0,4) -- (4,0) node[midway, above left] {up} node[midway, below right] {down};
+    \draw [red] (0.5,0.5) -- (4.5,4.5) node[midway, above left] {};
+    \node[right] at (1,3) {היצע עודף};
+    \node[left] at (4,1) {ביקוש עודף};
+    \node[right] at (4.5,4.5) {$LM$};
+\end{tikzpicture}
+
+
+
+\subsection{היסטים}
+
+$\Delta i = \dfrac{1}{h} \left[k\D{Y} + \D{M_0} - \D{M^s}\right]$  \vspace{10pt}
+\\
+\textbf{היסט אופקי } $\Delta i = 0 $ \vspace{10pt} 
+\\
+$\D{Y} = \dfrac{\D{M^s} - \D{M_0}}{k}$ \vspace{10pt}
+\\ 
+\textbf{היסט אנכי } $\D{Y} = 0 $ \vspace{10pt}
+\\
+$\D{i} = \dfrac{\D{M_0} - \D{M^s} }{h}$
+
+\section{שיווי משקל כללי}
+קיים שילוב יחיד של תוצר וריבית אשר מביא לשיווי משקל בשוק המוצרים ובשוק הכסף במקביל לכל מצב
+עולם.
+שילוב של שתי העקומות הצבה של שוק הכסף בשוק המוצרים דרך הריבית.
+\begin{equation*}
+    Y=\frac{\alpha h}{h+\alpha b k} \times A_0+\frac{\alpha b}{h+\alpha b k} \times\left(M^s-M_0\right)
+\end{equation*}
+% \begin{tikzpicture}[scale=1.4]
+%     \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+%     \draw[->] (0,0) -- (0,5) node[above] {$i$};
+%     % \draw[dashed] (0,4) -- (4,0) node[midway, above left] {up} node[midway, below right] {down};
+%     \draw [red] (0.5,0.5) -- (4.5,4.5) node[midway, above left] {};
+%     \node[right] at (4.5,4.5) {$LM$};
+%     \draw [blue] (0.5,3.5) -- (4.5,0.5) node[midway, above left] {};
+%     \node[right] at (4.5,0.5) {$IS$};
+
 % \end{tikzpicture}
-% \begin{tikzcd}
-%     & y \arrow[d, "C" description] \arrow[d, "I" description] \arrow[d, "G" description] \\
-%     & C \arrow[r] & I \arrow[r] & G
-%     \end{tikzcd}
+\begin{figure}[H]
+    % \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{figures/ISLM default.png}
+        \end{center}
+        % \caption{}
+        \label{fig:}
+    % \end{small}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{figures/ISLM IS move.png}
+        \end{center}
+        % \caption{}
+        \label{fig:}
+    \end{small}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{small}
+        \begin{center}
+            \includegraphics[width=0.95\textwidth]{figures/ISLM LM Move.png}
+        \end{center}
+        % \caption{}
+        \label{fig:}
+    \end{small}
+\end{figure}
+
+
+
 
 \end{RTL}
 \end{document}
