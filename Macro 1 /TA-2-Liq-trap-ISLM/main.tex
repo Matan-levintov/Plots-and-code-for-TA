@@ -1,53 +1,211 @@
 % !TEX program = xelatex
-\documentclass[a4paper,11pt]{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage[]{geometry} % Insert size in the [] to define and control the margins on the page
-\usepackage{hyperref} % Makes links and table of contents clickable
-% \hypersetup{colorlinks=true, linkcolor=blue} Use this if you want the links to be noticeable and have color blue, the color can be changed
-% \usepackage{mathtools} % math tools builds upon amsmath, so only one of them is needed, note that mathtools has all the functions that amsmath has and even more
-\usepackage{amsmath ,amssymb,amsthm}
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Copenhagen}
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \renewcommand{\qed}{\hfill\blacksquare}
-\usepackage{cancel}
-% ============================================================ %
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
 
+% ============================================================ %
 % HEBREW support via polyglossia %
-
 % ============================================================ %
-
 \usepackage{polyglossia}
-
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
-
 \setdefaultlanguage{hebrew}
-
 \setotherlanguage{english}
-
 \newfontfamily\hebrewfont[Script=Hebrew]{Arial}
-
-% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
-
-% Use \texthebrew{ } and \textenglish{ } for short texts.
-
+\usepackage{bidi}
 % ============================================================ %
 
-\usepackage{bidi} % we use bidi for Right-To-Left (RTL) writing
-\title{תרגול 2 - מלכודת נזילות}
-\author{מתן לבינטוב}
-\date{}
-% Begin of Document ---------------------------------------- %
+\title[]{{מאקרו א' - תרגול 3 מלכודת נזילות}}
+\author{{ מתן לבינטוב}}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+
 \begin{document}
 \begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{מצבי קיצון $LM$}
+    \begin{block}{תורת כמות הכסף $h=0$}
+        משמע הביקוש לכסף אינו תלוי בריבית, מכך שהרחבה פיסקלית אינה יעילה ויהיה קיזוז מלא ונקבל נקודה  עם אותו תוצר אבל עם ריבית גבוהה יותר
+        $$LM : i = \frac{1}{h} \cdot \left[ky - \frac{M}{P}\right]$$
+    \end{block}
+
+    \begin{block}{מלכודת נזילות $h=\infty$}
+        הביקוש לכסף הוא אינסופי, כלומר הציבור יהיה מוכן להחזיק כל כמות של כסף, מכך שהרחבה פיזקלית היא מאוד יעילה משום שאין קיזוז כתוצאה מעליית ריבית (היות ועליית הריבית אינה מתחרשת)
+        $$LM : i = \frac{1}{h} \cdot \left[ky - \frac{M}{P}\right]$$   
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{מצבי קיצון $LM$ $h=0$}
+
+    \begin{flushleft}
+            \begin{tikzpicture}
+                    % Axes
+                    \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+                    \draw[->] (0,0) -- (0,6) node[above] {$i$};
+                    
+                    % IS curve (linear)
+                    \draw[thick, blue] (0.5,5.5) -- (5.5,0.5) node[right] {$IS$};
+                    % LM curve (linear)
+                    \draw[thick, red] (2,0) -- (2,6) node[right] {$LM$};
+                    % Liquidity trap horizontal line
+                    % \draw[dashed] (0,0) -- (6,0) node[right] {Liquidity Trap};
+                    % Equilibrium point
+                    % \fill[black] (3,3) circle (2pt) node[above] {Equilibrium};
+                \end{tikzpicture}
+    \end{flushleft}
+\end{frame}
+
+\begin{frame}
+    \frametitle{מצבי קיצון $LM$ $h=\infty$}
+
+    \begin{flushleft}
+            \begin{tikzpicture}
+                    % Axes
+                    \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+                    \draw[->] (0,0) -- (0,6) node[above] {$i$};
+                    
+                    % IS curve (linear)
+                    \draw[thick, blue] (0.5,5.5) -- (4,-0.5) node[right] {$IS$};
+                    % LM curve (linear)
+                    \draw[thick, red] (0,0) -- (5.7,0) node[above] {$LM$};
+                    % Liquidity trap horizontal line
+                    % \draw[dashed] (0,0) -- (6,0) node[right] {Liquidity Trap};
+                    % Equilibrium point
+                    % \fill[black] (3,3) circle (2pt) node[above] {Equilibrium};
+                \end{tikzpicture}
+    \end{flushleft}
+\end{frame}
+
+\begin{frame}
+    \frametitle{מלכודת נזילות}
+    \begin{block}{מלכודת נזילות}
+        משק שנמצא בשפל עמוק, עם מחסור בביקושים וריבית במשק אפסית $(i=0)$ \\
+        במצג רגיל הרחבה מוניטרית : \\
+        $\text{ביקוש לאגח} \uparrow \implies \text{מחיר האגח} \uparrow \implies \text{תשואת האג''ח }\downarrow \implies i\downarrow$ \\
+        אולם, במלכודת נזילות הרחבה מוניטרית אינה מעלה את הביקוש לאג''ח מחשש לעליית ריבית ובכך פגיעה בערך האג''ח או משום שאין פיצוי על הסיכון באג''ח. \\
+        במילים אחרות הציבור פשוט סופג את הכסף בלי שינוי במחירים או תשואות. \\
+        מכך ניתן להסיק שהפיתרון במלכודת נזילות הוא הרחבה פיסקלית מכיוון שאין קיזוז והעלייה בתוצר תהיה בגודל המכפיל הפיסקלי הפשוט (בגודל היסט האופקי $\a$)
+    \end{block}
+
+    \begin{alertblock}{תזכרו}
+        $$\a > \beta$$
+    \end{alertblock}
     
-% Title ---------------------------------------- %
-\maketitle
-% \newpage
-% Table of Contents ---------------------------------------- %
-% \tableofcontents
-% \newpage
-% Start of paper ---------------------------------------- %
-\section{התחלה}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{מלכודת נזילות}
+
+    \begin{flushleft}
+        \begin{tikzpicture}
+                % Axes
+                \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+                \draw[->] (0,0) -- (0,6) node[above] {$i$};
+                
+                % IS curve (linear)
+                \draw[thick, blue] (0.5,2) -- (3,-1) node[right] {$IS_1$};
+                \draw[thick, blue] (1.5,2) -- (4,-1) node[right] {$IS_2$};
+                \draw[thick, blue] (3.5,2) -- (5.75,-1) node[right] {$IS_3$};
 
 
+                % LM curve (linear)
+                \draw[thick, red] (0,0) -- (5,0) node[above]{};
+                \draw[thick, red] (5,0) -- (7,3) node[above]{$LM$};
+
+                % Liquidity trap horizontal line
+                % \draw[dashed] (0,0) -- (6,0) node[right] {Liquidity Trap};
+                % Equilibrium point
+                % \fill[black] (3,3) circle (2pt) node[above] {Equilibrium};
+            \end{tikzpicture}
+    \end{flushleft} 
+
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{מלכודת נזילות עם ירידת מחירים}
+    \begin{itemize}
+        \item כשאנחנו נמצאים באבטלה אנחנו מצפים שמחירים ירדו
+        \item הסכנה בירידת מחירים היא ציפייה לכך שירידת המחירים תמשיך
+        \item ציפיות אלו מקפיאות השקעות והציבור כל הזמן מחכה לירידת מחירים הבאה
+    \end{itemize}
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{תזכורת - ביקוש להשקעות}
+    הביקוש להשקעות $I$ מושפע מהריבית הריאלית :
+    \begin{equation*}
+        r^e = i - \pi^e
+    \end{equation*}
+    \begin{equation*}
+        I = I_0 - br = I_0 - b(i - \pi^e) = \textcolor{red}{I_0 - bi + b\pi^e}
+    \end{equation*}
+    כאשר הציפיות לאינפלציה חיויביות : \\
+    \begin{equation*}
+        \pi^e > 0 \implies  r^e  < i \implies I \uparrow
+    \end{equation*}
+    כאשר הציפיות לאינפלציה שליליות : \\
+    \begin{equation*}
+        \pi^e < 0 \implies  r^e  > i \implies I \downarrow
+    \end{equation*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{דוגמה - ירידה בביקושים}
+    \begin{flushleft}
+        \begin{tikzpicture}[scale=0.9]
+                % Axes
+                \draw[->] (0,0) -- (6,0) node[right] {$Y$};
+                \draw[->] (0,0) -- (0,6) node[above] {$i$};
+                
+                % IS curve (linear)
+                \draw[thick, blue] (0.5,5.5) -- (5.5,0.5) node[right] {$IS_1$};
+                \draw[thick, blue] (0.5,4.5) -- (5.5,-0.5) node[right] {$IS_2(A_0 \downarrow)$};
+                \draw[thick, blue] (0.5,3.5) -- (5.5,-1.5) node[right] {$IS_3(\pi^e < 0 )$};
+
+                % LM curve (linear)
+                \draw[thick, red] (0.5,0.5) -- (5.5,5.5) node[left] {$LM_1$ \ \ };
+                \draw[thick, red] (1.5,0.5) -- (6.5,5.5) node[above] {$LM_2 (P \downarrow)$};
+                \draw[thick, red] (2.5,0.5) -- (7.5,5.5) node[right] {$LM_3 (P \downarrow)$};
+
+
+                %Y_P line
+                \draw[thick,black] (3,0) -- (3,6) node[right] {$Y_p$};
+            \end{tikzpicture}
+\end{flushleft}
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{מסקנות}
+    \begin{exampleblock}{מסקנות}
+        יש לבצע מדיניות אקטיבית שתמנע ירידת מחירים. יש לבצע אותה באופן מידי כאשר מזהים מיתון על מנת
+למנוע את ירידת המחירים. \textbf{ניתן לבצע גם מדיניות מוניטרית מרחיבה וגם מדיניות פיסקלית מרחיבה}
+    \end{exampleblock}
+    
+
+
+\end{frame}
 
 
 \end{RTL}
