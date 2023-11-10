@@ -25,12 +25,164 @@
 \title[]{{מאקרו א' - תרגול 4 צריכה פרטית}}
 \author{\texthebrew{ מתן לבינטוב}}
 \institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
-% \date{}
+\date{12 בנובמבר 2023}
 \usepackage{bidi}
 \begin{document}
 \begin{RTL}
 \begin{frame}
 \titlepage
+\end{frame}
+
+\begin{frame}{דרכים ליצירת קשר לשאלות ושעות קבלה}
+    \begin{block}{מייל}
+    אפשר לשלוח לי מייל \href{mailto:malev@post.bgu.ac.il}{malev@post.bgu.ac.il}
+    \end{block}
+    \begin{block}{טלפון}
+    0524006246
+        
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{המודל הדו תקופתי}
+    מודל זה הוא מודל אשר מתאר את הצריכה והחיסכון של של הפרט כפונקציה של מצב המשק
+    \begin{block}{הנחות המודל}
+        \begin{itemize}
+            \item הפרט יודע את אורך חייו (לרוב שתי תקופות אך ניתן להרחיב את המודל ליותר)
+            \item הפרט יודע את הכנסותיו בהווה ובעתיד
+            \item הפרט יכול לקחת את הכנסות שלו מהעתיד (לקחת הלוואה) או להעביר הכנסות מהווה לעתיד (לחסוך)
+            \item פונקצית התועלת של הפרט מורכבת מצריכה בהווה ובעתיד
+        \end{itemize}
+    \end{block}
+    
+    פרט טכני: \\ 
+    אנו מניחים כי מחיר מוצר הצריכה בהווה הוא $P_{C_1} = 1$ ולכן מחיר מוצר הצריכה בעתיד הוא $P_{C_2} = \frac{1}{1+r}$, ויחס המחירים הוא , $\frac{P_{C_1}}{P_{C_2}} = 1 + r$ 
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{מודל הדו תקופתי}
+    \begin{block}{קו התקציב}
+        סך הצריכה המהוונת של הפרט צריכה להיות שווה לסך הכנסה המהוונת של הפרט על מנת שהוא ימקסם תועלת מצריכה
+        
+        $$
+        C_1 + \frac{C_2}{1+r} = Y_1 + \frac{Y_2}{1+r} \quad or \quad  C_2 = Y_2 + (Y_1-C_1) \cdot (1+r)
+        $$
+    \end{block}
+    \begin{itemize}
+        \item  בגלל שאנחנו בצירים של $(C_1,C_2)$ אז שיפוע קו התצקיב הוא $1+r$ 
+        \item כל שינוי בהכנסה (בין אם זה בהווה או בעתיד) יעלה את קו התצקיב למעלה או למטה
+        \item שינוים בריבית ישנו את שיפוע הקו
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{מודל דו תקופתי - ציור}
+    \begin{flushleft}
+        \begin{tikzpicture}
+            \tikzset{
+        position label/.style={
+           below = 3pt,
+           text height = 1.5ex,
+           text depth = 1ex
+        },
+       brace/.style={
+         decoration={brace,raise = 0.5ex},
+         decorate
+       }
+    }
+                % Axes
+                \draw[->] (0,0) -- (6,0) node[right] {$C_1$};
+                \draw[->] (0,0) -- (0,6) node[above] {$C_2$};
+
+                \draw[thick, blue] (0,5) -- (5,0) node[above] {};
+
+                \fill (0,5) circle (2pt) node[left] {$Y_1(1+r)+Y_2$}; 
+                \fill (0,2.5) circle (2pt) node[left] {$Y_1$};
+                \draw[dashed] (0,2.5) -- (2.5,2.5) node[below] {};
+                \draw[dashed] (2.5,2.5) -- (2.5,0) node[below] {};
+                \fill(2.5,0) circle (2pt) node[below] {$Y_2$};
+                \fill (5,0) circle (2pt) node[below] {$Y_1 + \frac{Y_2}{1+r}$};
+                \fill (2.5,2.5) circle (2pt) node[above right] { ההון בשוק משתתף לא };
+                \draw (4,0)  arc(-45:0:1) node[below left] (1+r) {$1+r$};
+                \draw [brace] (0,5) -- node [position label, pos=.5,yshift = 4.5ex, xshift = 5ex] {\textcolor{green!70!black}{חוסך הפרט}} (2.5,2.5);
+                % \draw [decoration={brace,raise=0.5ex}, decorate] (0,5) -- (2.5,2.5);
+                \draw [brace] (2.5,2.5) -- node [position label, pos=.5,yshift = 4.5ex, xshift = 5ex] {\textcolor{red}{לווה הפרט}} (5,0);
+
+                
+
+                
+            \end{tikzpicture}
+    \end{flushleft}
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{$S$}
+%     \begin{tikzpicture}
+        
+%     \tikzset{
+%         position label/.style={
+%            below = 3pt,
+%            text height = 1.5ex,
+%            text depth = 1ex
+%         },
+%        brace/.style={
+%          decoration={brace, mirror},
+%          decorate
+%        }
+%     }
+    
+%     \node [position label] (cStart) at (0,0) {$ \underline{c} $};
+%     \node [position label] (cA) at (2.3,0) {$ c_A^{*} $};
+%     \node [position label] (cB) at (4,0) {$ c_B^{*} $};
+%     \node [position label] (cEnd) at (8,0) {$\overline{c} $};
+    
+%     \draw [brace] (cStart.south) -- (cA.south) node [position label, pos=0.5] {First};
+% \end{tikzpicture}
+
+% \end{frame}
+
+\begin{frame}
+    \frametitle{תועלת הפרט}
+    הפרט מפיק תועלת מצריכת מוצרים בהווה ובעתיד
+    \begin{equation*}
+        U(C_1,C_2) = u_1(C_1) + \frac{1}{\rho} \times u_2(C_2)
+    \end{equation*}
+
+    כאשר $\rho$ היא העדפת הזמן של הפרט
+    \begin{itemize}
+        \item $\rho > 1$ הפרט מעדיף צריכה בהווה
+        \item $\rho < 1$ הפרט מעדיף צריכה בעתיד
+        \item $\rho = 1$ לפרט אין העדפת זמן
+    \end{itemize}    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{פיתרון בעיית הפרט}
+    \begin{equation}
+        \max U(C_1,C_2) 
+    \end{equation}
+    \begin{equation}
+        s.t \quad C_2 = Y_2 + (Y_1 - C_1) \cdot (1+r)
+    \end{equation}
+    \begin{equation}
+        MRS = 1+r
+    \end{equation}
+    \begin{equation}
+        C_1 = f\left(Y_1,Y_2,r\right)  \quad C_2 = f\left(Y_1,Y_2,r\right)
+    \end{equation}
+\end{frame}
+
+\begin{frame}{הערות}
+    \begin{itemize}
+        \item אפקט התחלופה - כאשר מחיר של מוצר אחד עולה אזי נרצה לצרוך ממנו פחות
+        \item אפקט ההכנסה - כהכנסה שלנו עולה אני רוצה לצרוך יותר מהכל
+        \item מגבלות בשוק ההון - מגבלות בשוק ההון יכולות לבוא לידי ביטוי על ידי ריבית שונה למלווים ולווים, הגבלה על כמות הלוואות
+        \item לפרט שלא משתתף בשוק ההון יש נטייה שולית לצרוך
+    \end{itemize}
+    
 \end{frame}
 \end{RTL}
 \end{document}
