@@ -1,0 +1,210 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Copenhagen}
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{{מאקרו א' - תרגול 5 צריכה פרטית ב'}}
+\author{\texthebrew{ מתן לבינטוב}}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+\date{20 בנובמבר 2023}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{נושאים}
+    \tableofcontents
+\end{frame}
+
+\section{תאוריית מחזורי החיים של מודליאני}
+
+\begin{frame}[allowframebreaks]{תאוריית מחזורי החיים של מודליאני}
+הפרט חי , בתוחלת $L$ שנים. מתוכם הוא עובד $N$ שנים, וביתר הזמן הוא $N-L$ הוא בפנסייה.
+\begin{block}{הנחות המודל}
+    \begin{itemize}
+        \item הפרט \textbf{יודע בוודאות} את מספר שנות חייו
+        \item אין ריבית
+    \end{itemize}
+    על ידי שילוב הנחה שאין ריבית ובדרך כלל גם לא תהיה העדפה לתקופת צריכה, הפרט יצרך אותה כמות בכל תקופה ולכן $C$ קבוע.
+\end{block}
+
+\begin{block}{פונקציית הצריכה לטווח ארוך (לכל החיים)}
+    כיוון שהפרט לא מוריש דבר ומשתמש בכך החסכונות (פנסייה) שלו, אז סך הכנסות שלו צריכות להיות שוות לסך הצריכה שלו :
+    \begin{equation*}
+       \underbrace{ L \cdot C }_{\text{סך הצריכה}}= \underbrace{N \cdot Y }_{\text{סך הכנסות}}
+    \end{equation*}    
+
+    לכן פונקציית הצריכה של טווח ארוך היא :
+    $$
+    C = \frac{N}{L}\cdot Y
+    $$
+\end{block}
+\framebreak % the command equivalent to \newpage in beamer
+משתני המודל הם :
+\begin{itemize}
+    \item $Y$ - הפרט מרוויח \textbf{הכנסה קבועה} עד $N$ ואז בפנסיה אין לו הכנסה יותר
+    \item $W$ - העושר שלו נצבר בכל תקופות העבודה שלו מכיוון שהוא מגדיל את העושר שלו על ידי חיסכון
+    \item $C$ - הצריכה שלו, לפי הנחות המודל הצריכה נגזר שהצריכה היא קבועה
+\end{itemize}
+\begin{flushleft}
+    \begin{tikzpicture}
+ % Axes
+ \draw[->] (0,0) -- (6,0) node[right] {$Age$};
+ \draw[->] (0,0) -- (0,6) node[left] {$C,Y,W$};
+
+ \draw[ultra thick,dashed,blue] (0,1.5) -- (5,1.5) node[above right] {$Consumption$};
+ \draw[ultra thick,dashed,blue] (5,1.5) -- (5,0);
+ \fill (5,0) circle (2pt) node[below] {$L$};
+ \fill (0,1.5) circle (2pt) node[left] {$C=\frac{N}{L}\cdot Y$};
+ \draw[ultra thick,red] (0,3) -- (3.5,3) node[above left] {$Income$};
+ \draw[ultra thick,red] (3.5,3) -- (3.5,0);
+ \draw[ultra thick,red] (3.5,0) -- (5,0);
+
+ \fill (3.5,0) circle (2pt) node[below] {$N$};
+ \fill (0,3) circle (2pt) node[left] {$Y$};
+ \draw[ultra thick,dotted] (0,0) -- (3.5,6) node[above] {$Wealth$};
+ \draw[ultra thick,dotted] (3.5,6) -- (5,0);
+ \draw[dashed] (3.5,6) -- (3.5,0);
+
+
+
+ 
+
+
+ 
+
+
+%  \fill (0,5) circle (2pt) node[left] {$Y_1(1+r)+Y_2$}; 
+%  \fill (0,2.5) circle (2pt) node[left] {$Y_2$};
+%  \draw[dashed] (0,2.5) -- (2.5,2.5) node[below] {};
+%  \draw[dashed] (2.5,2.5) -- (2.5,0) node[below] {};
+%  \fill(2.5,0) circle (2pt) node[below] {$Y_1$};
+%  \fill (5,0) circle (2pt) node[below] {$Y_1 + \frac{Y_2}{1+r}$};
+%  \fill (2.5,2.5) circle (2pt) node[above right] { ההון בשוק משתתף לא };
+
+
+
+
+
+    \end{tikzpicture}
+\end{flushleft}
+
+\framebreak
+\begin{block}{פונקצית התצרוכת בטווח קצר (כל נקודה בזמן $t$)}
+    שוב נזכיר שהפרט צורך את כל הכנסתו מהנקודה שהוא נמצא בה ועד סוף החיים שלו באופן אחיד
+    $$
+   \underbrace{ C\left(t\right) \cdot \left(L-t\right)}_{\text{סך צריכה עתידית}} = \underbrace{W}_{\text{עושר שנצבר עד כה}} + \underbrace{ \left(N-t\right) \cdot Y}_{\text{הכנסה עתידית צפויה}}
+   $$
+   $$
+   \implies C(t) = \underbrace{\frac{1}{L-t}}_{\text{נש''צ מתוך עושר - $\alpha$}}\cdot W +\underbrace{ \frac{N-t}{L-t}}_{\text{נש''צ מתוך הכנסה - $c$}}\cdot Y
+   $$
+
+
+    
+\end{block}
+
+\begin{exampleblock}{מסקנות}
+    \begin{itemize}
+        \item הנש''צ מתוך העושר הולך \textbf{וגדל} עם $t$, כלומר ככל שהפרט מבוגר יותר ככה הוא צורך יותר מהעושר
+        \item הש''צ מתוך הכנסה הולך \textbf{וקטן} עם $t$, כלומר ככל שהפרט מבוגר יותר ככה הוא צורך פחות מהכנסתו
+    \end{itemize}
+    
+\end{exampleblock}
+\end{frame}
+
+\section{תאוריית ההכנסה הפרמננטית}
+\begin{frame}[allowframebreaks]{תאוריית ההכנסה הפרמננטית}
+    תאוריה זאת מניחה שהכנסה היא תנודתית ולפרט יש 2 מרכיבים להכנסה השוטפת
+    \begin{itemize}
+        \item הכנסה פרמנננטית ($Y^{P}$) - המרכיב היציב שבהכנסה, והפרטים צופים שהפריט הזה ישמור על ערכו על פני זמן
+        \item הכנסה טרנזיטורית ($Y^T$) - המרכיב התנודתי בהכנסה , ולכן תנודות בו אינן מלמדות דבר על הכנסה עתידית. בפרט על פני זמן נצפה שתנודות בהכנסה הטרנזיטורית יקזזו אחד את השני, כלומר $\mathbb{E}(Y^T)=0$
+    \end{itemize}
+    על פי התאוריה הפרטים צורכים רק לפי הכנסה פרמנננטית $Y^{P}$ ולכן $C = c\cdot Y^P$ \\
+     נמ''צ  $APC = \frac{C}{Y}$
+
+     \framebreak
+     בטווח קצר :
+     \begin{equation*}
+        APC = \frac{c\cdot Y ^P}{Y^P + Y^T}
+        \begin{cases}
+            APC < c \impliedby &  Y^T > 0 \\
+            APC \geq c  \impliedby & Y^T \leq 0 
+        \end{cases}
+     \end{equation*}
+     בטווח ארוך : \\
+     כפי שנאמר בטווח ארוך $\mathbb{E}(Y^T) = 0$ ולכן $APC = c$
+
+     \framebreak
+
+    \begin{block}{איך פרטים מחלקים את הכנסתם}
+        בפועל וגם אמפירית הפרטים רואים את הכנסתם השוטפת (הכוללת) ואז בהתאם למידע שיש להם הם מחלקים אותה לקבועה או זמנית / חד פעמית. \\
+
+        כאשר קבועה הכוונה ל$Y^P$ ולזמנית ל$Y^T$. \\ 
+        ישנם 2 סוגי ציפיות :
+        \begin{itemize}
+            \item ציפיות אדפטיביות ("הולך עם הזרם") 
+            \item ציפיות רציונליות
+        \end{itemize}
+    \end{block}
+    \framebreak
+    \begin{block}{ציפיות אדפטיביות}
+        כאשר הציפיות אדפטיביות, אז הפרט משקלל את ההכנסה הפרמננטית שלו על ידי ההכנסה השוטפת שלו מהתקופה הנוכחית והקודמת.
+        
+    \end{block}
+    \[
+            Y^P_t = \theta Y_t  +  (1-\theta)Y_{t-1}
+            \]
+            בצורה פורמלית וכללית יותר
+            \[
+            Y^P_t = \sum_{i=0}^{\infty} \theta^i Y_{t-i}
+                \]
+                \begin{alertblock}{הערה}
+                    לרוב יהיו לכם רק 2 או 3 תקופות כי אין טעם לסבך את החישובים
+                \end{alertblock}
+    אם נציב בפונקצית הצריכה נקבל : 
+    \begin{equation*}
+        C_t = c\cdot Y^P_t = \underbrace{\theta\cdot c}_{\text{נש''צ}}\cdot Y_t  + \underbrace{ (1-\theta)c\cdot Y_{t-1}}_{\text{קבוע / חותך}}
+    \end{equation*}
+    מה משפיע על $\theta$ ?
+    \begin{enumerate}
+        \item סוג תעסוקה - ככל שתעסוקה יותר יציבה הפרט ייתן משקל גדול יותר להכנסה שוטפת בתקופה נוכחית וייחס חשיבות רבה לשינויים בשכר
+        \item הסיבה לשינוי בהכנסה - הפרט בוחן אם האירוע שגרם לשינוי הוא חד פעמי לדוג' בונוס או אירוע קבוע / פרמנננטי כמו קידום בעבודה
+    \end{enumerate}
+
+    \framebreak
+    \begin{block}{גישת הרציונליות הקיצונית - Walk Random}
+        הפרט משקלל את כל השינויים \textbf{העתידים} לקרות כדי להחליט מה תהיה רמת הצריכה שלו, \textbf{ולכן רק שינויים בלתי צפויים יכולים לשנות את הצריכה שלו.}
+
+
+        
+    \end{block}
+\end{frame}
+
+
+\end{RTL}
+\end{document}
