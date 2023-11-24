@@ -1,0 +1,122 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Copenhagen}
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{{מאקרו א' - תרגול 6 - צריכה ממשלתית}}
+\author{\texthebrew{ מתן לבינטוב}}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}{נושאים}
+    \tableofcontents
+\end{frame}
+\section{צריכה ממשלתית}
+\begin{frame}[allowframebreaks]{צריכה ממשלתית}
+    ראשית נציג איך בנוי התקציב הממשלתי:
+    \begin{table}
+    \centering
+    \begin{tabular}{|c|c|} \hline 
+         הכנסות& הוצאות\\ \hline 
+         סך הכנסות ממיסים ברוטו  - $T_t$& צריכה ציבורית  - $G_t$\\ \hline 
+         בניכוי : \\ תשלומי העברה $TR$ \\ ריבית על חוב נצבר $rD_{t-1}$&השקעה ציבורית $I_t^G$ \\ \hline
+    \end{tabular}
+    \end{table}
+גרעון :
+\begin{equation*}
+    DEF_t = \underbrace{ G_t + I_t^G}_{\text{הוצאות ממשלה}} - \underbrace{(T_t -TR_t - rD_{t-1})}_{\text{הכנסות נטו ממשלה}}
+\end{equation*}
+
+גירעון בסיסי :
+\begin{equation*}
+    F_t = G_t + I_t^G - (T_t -TR_t) = DEF_t - rD_{t-1}
+\end{equation*}
+חיסכון ציבורי :
+\begin{equation*}
+   \underbrace{ S_G}_{\text{חיסכון ציבורי נטו}} = \underbrace{T - TR -rD_{t-1}}_{\text{הכנסות ציבוריות נטו}}-\underbrace{G}_{\text{הוצאות ציבוריות}}
+\end{equation*}
+מכאן נובע, 
+\begin{equation*}
+    DEF - I_G = -S_G
+\end{equation*}
+במילים, גרעון בניוכי השקעות שווה לחיסכון הממשלה בערך מוחלט.
+
+\end{frame}
+\section{החוב הציבורי}
+\begin{frame}[allowframebreaks]
+    \frametitle{החוב הציבורי}
+    \begin{block}{משוואות}
+        \begin{equation*}
+            \underbrace{D_t}_{\text{מלאי}} = \underbrace{D_{t-1}}_{\text{מלאי}} + \underbrace{DEF}_{\text{זרם}}
+        \end{equation*}
+        \begin{equation*}
+            DEF = D_t - D_{t-1}
+        \end{equation*}
+        \begin{equation*}
+            \dot D_t = DEF_t
+        \end{equation*}
+    \end{block}
+
+    נטל החוב , זה בעצם החוב ביחס לתוצר :
+    \[d_t = \frac{D_t}{Y_t}\]
+    שינויים על פני זמן (בזמן רציף) : 
+    \[\dot D = DEF  = F + rD\]
+    \begin{block}{שיעור השינוי בחוב + שיעור השינוי בנטל החוב }
+    \[\hat D = \frac{\dot D }{D } = \frac{F}{D} + r  \underbrace{\implies}_{\hat d = \hat D - \hat Y} \hat d  = \frac{F}{D} + r - \hat Y\]
+        
+    \end{block}
+\end{frame}
+\section{שקילות רקרדו}
+\begin{frame}[allowframebreaks]
+    \frametitle{שקילות רקרדו}
+    הרחבה למודל הצריכה הדו תקופתית שלמדנו בשיעורים הקודמים, כעת ההכנסה של הפרט תלויה
+בגביית המיסים בזמן 1 ובזמן .2 הפרטים במודל שלנו הם פרטים רציונליים וחכמים אשר מבינים
+שאם הממשלה מעלה את הצריכה שלה היום, היא תעלה מיסים או היום או בתקופה הבאה. לכן
+המסקנה היא שזה לא משנה אם הממשלה תממן את הגדלת הצריכה באמצעות מיסים או לקיחת
+חוב. אנחנו נראה כי כאשר מתקיימות מגבלות בשוק ההון לא נגיע בהכרח לאותן מסקנות.
+    
+\framebreak
+\begin{enumerate}
+    \item מגבלת אשראי לפרטים
+    \item ריבית שונה לממשלה ופרטים
+    \item ריבית שונה בין מלווים ולווים
+\end{enumerate}
+\framebreak
+קו התקציב החדש של הפרטים:
+\[C_1 + \frac{C_2}{1+r} = (Y_1 - G_1) +\frac{(Y_2 - G_2)}{1+r} \]
+תקציב הממשלה :
+\[G_1 = T_1 + DEF_1\]
+\[G_2  +(1+r)DEF_1 = T_2\]
+בכל מקרה קו התצקיב לא משנתה במידה והפרטים רציונלים בין הבחירה לעלות מיסים היום או בתקופה השנייה
+\[C_1 + \frac{C_2}{1+r} = (Y_1 - G_1) +\frac{(Y_2 - G_2)}{1+r} + \Delta DEF_1 \]
+\end{frame}
+\end{RTL}
+\end{document}
