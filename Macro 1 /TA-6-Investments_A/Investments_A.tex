@@ -42,11 +42,91 @@
     
 
 \end{frame}
-\section{}
+\section{השקעות וביקוש להשקעות}
 \begin{frame}
-    \frametitle{<title>}
-
+    \frametitle{השקעות}
+    \begin{exampleblock}{הגדרה}
+        השקעה היא זרם (שינוי) במלאי ההון המשפיע על כושר היצור של המשק, הביקוש להשקעות הוא למעשה הביקוש להון של פירמות.
+    \end{exampleblock}
+    נניח פונקציות יצור שמקיימת תכונות מתמטיות אהובות ושימושיות בכלכלה, לדוגמה Cobb-Douglas :
+    \[Y = f\left(K,L\right) = AK^{\ \alpha} L^{1-\alpha}\]
+    פירמה תגדיל את ההון שלה עד שערך התפוקה השולית של ההון שווה לעלות השולית של ההון:
+    \[f^{\ \prime}_K = r + d \]
     
+
+\end{frame}
+\section{שוק המניות ותאוריית ה q של טובין}
+\begin{frame}[allowframebreaks]
+    \frametitle{שוק המניות ועלות הההון}
+    פירמות יכולות לגייס הון על ידי הנפקת מניות ומכירת בשוק ההון, בשוק ההון המחיר של המניות דינאמי וכל הזמן משתנה,
+    \begin{equation*}
+        P_{\text{stock}} \uparrow \implies \text{הפירמה מגייסת אותה כמות של כסף בפחות מניות} \implies r \downarrow \implies I \uparrow
+    \end{equation*}
+    בהחלטה על השקעה הפירמה מתייחסת ל2 דברים : 
+    \begin{itemize}
+        \item ערך המניות שהשוק נותן לחברה $\left(P \times N \right)$ זה פשוט מחיר המניה כפול מספר המניות
+        \item עלות החלפה של יחידת הון
+    \end{itemize}
+    \begin{align*}
+    q &= \frac{\text{ערך ההון של הפירמה / שווי הפירמה}}{\text{עלות ההון הקיים}}  \\  
+    q^{\ \prime} &= q_{\ \text{שולי}} = \frac{\text{עלות יחידת הון}}{\text{מחיר הכסף}} 
+     = \frac{mpk - d}{r}
+    \end{align*}
+    \framebreak
+    \begin{block}{הסבר אלגברי + כלכלי}
+        \begin{enumerate}
+            \item $q > 1 \implies mpk - d > r \implies k \uparrow \implies mpk \downarrow \implies q \downarrow$
+            \item $q < 1 \implies mpk - d < r \implies k \downarrow \implies mpk \uparrow \implies q \uparrow$
+        \end{enumerate}
+
+    \end{block}
+    \begin{block}{הסבר במילים}
+        \begin{enumerate}
+            \item $q>1$ הפירמה תמכור מניות ותקנה עוד הון עם הכסף הזה, בגלל שיותר זול לגייס ככה כסף
+            \item $q<1$ הפירמה לא יעילה, יש לה יותר מידי הון ולכן היא תמכור את ההון דבר שיגדיל את ה $q$ 
+        \end{enumerate}
+    \end{block}
+   
+
+    \begin{alertblock}{טווח ארוך}
+        בטווח הארוך $q=1$ כי פירמות שהיו עם $q>1$ מכרו מניות וקנו עוד הון  ופירמות שה$q<1$ נסגרו או מכרו הון והתייעלו
+    \end{alertblock}
+\end{frame}
+\section{מודל מאיירס-אינפורמציה לא סימטרית בשוק ההון}
+\begin{frame}[allowframebreaks]
+    \frametitle{מודל מאיירס-אינפורמציה לא סימטרית בשוק ההון}
+    \begin{block}{סימונים ומשתנים}
+        \begin{align*}
+             & X & \text{ערך הנכס המקורי} \\ & I & \text{השקעה בנכס} \\ & V & \text{עליית ערך הנכס} \\ & \alpha & \text{אחוז הבעלות של המשקיעים} \\ & 1-\alpha & \text{אחוז הבעלות של היזם}
+         \end{align*}
+    \end{block}
+    \framebreak
+    היזם פותר :
+    \begin{itemize}
+        \item אם לא תהיה השקעה אז ערך הנכס ללא שינוי ולכן $\pi = 0$
+        \item אם תהיה השקעה אז היזם ירוויח : 
+    \end{itemize}
+    $$\pi = \underbrace{(1-\alpha)\left(X+V\right)}_{\text{הערך החדש של הנכס שנשאר אצל היזם}} - \underbrace{X}_{\text{הערך המקורי של הנכס}}$$
+    
+    המשקיע פותר : \\
+    \begin{itemize}
+        \item  הרווח של המשקיע :
+    \end{itemize}
+    $$\pi = \alpha(X+V) - I$$
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{images/Screenshot 2023-12-03 at 19.35.55.png}
+    \end{figure}
+
+    \framebreak
+    \begin{alertblock}{הערה}
+    כל הדיבורים האלה היו כאשר האינפורמציה סימטרית, אבל מה קורה כאשר האינפורמציה אינה סימטרית?
+        
+    \end{alertblock}
+   היזם תמיד יודע את $X$ והמשקיע או משקיעים מעריכים את הערך הנכס לפי תוחלת
+   $$\bar{X} = P \cdot X_H + \left(1-P\right) X_L $$
+   ולכן החלק שמשקיעים ידרשו יגדל
+    $$\bar{\alpha^*} \geq \frac{I}{X+V}$$
 
 \end{frame}
 \end{RTL}
