@@ -139,6 +139,70 @@
         \end{enumerate}
     \end{block}
 \end{frame}
+
+
+
+\section{מצב יציב - S.S - Steady State}
+\begin{frame}[allowframebreaks]
+    \frametitle{מצב יציב}
+    \begin{block}{מצב יציב}
+        \begin{equation}
+            k_{ss} = \left(\frac{sA}{n+d}\right) ^ {\frac{1}{1-\alpha}}
+        \end{equation}
+        \begin{equation}
+            y_{ss} = A \cdot k_{ss}^\alpha
+        \end{equation}
+        
+    \end{block}
+    
+    \begin{alertblock}{הערות}
+        \begin{enumerate}
+            \item המשוואה השנייה היא היא פשוט המשוואה הרגילה אבל עם הצבה של $k_{ss}$
+            \item כפי שניתן לראות ש''מ ישתנה רק אם יהיה שינוי ב $A,d,n,s$
+            \item מדינות עם נתוני משק זהים התכנסו לאותו ש''מ
+        \end{enumerate}
+    \end{alertblock}
+    \framebreak
+    \begin{block}{במצב עמיד ישנה צמיחה מאוזנת}
+        \begin{equation*}
+            \hat k = 0  \implies \hat K = \widehat{ \left (k \cdot L \right )} = \hat k + \hat L = \underbrace{\hat k}_{\hat k = 0} + n = n
+        \end{equation*}
+        \begin{equation*}
+            \hat y = 0 \implies \hat{Y} = \widehat{ \left (y \cdot L \right )} = \hat y + \hat L = \underbrace{\hat y}_{\hat y = 0} + n = n
+        \end{equation*}
+        
+        
+    \end{block}
+
+    \begin{alertblock}{במצב לא עמיד אין צמיחה מאוזנת}
+        \begin{equation*}
+            \hat k \ne 0  \implies \hat K = n + \hat k \ne n
+        \end{equation*}
+        \begin{equation*}
+            \hat y \ne 0 \implies \hat{Y} = n + \hat y \ne n
+        \end{equation*}
+    \end{alertblock}
+\end{frame}
+
+\section{נגזרות}
+
+\begin{frame}
+    \frametitle{נגזרות}
+    \begin{alertblock}{הערה לגבי נגזרת}
+        בשביל לגזור תוצר לעובד לפי זמן, יש להשתמש בכלל שרשרת. \\
+        זאת משום שהתוצר לעובד לא תלוי ישירות בזמן, אלא הוא תלוי בהון לעובד $k$ שתלוי בזמן
+        \begin{equation*}
+            \frac{\partial y}{\partial t} = \dot y = \frac{\partial y}{\partial k } \cdot \frac{\partial k}{\partial t} = mpk \cdot \dot k 
+        \end{equation*}
+        $$\implies \hat y = \frac{mpk \cdot k }{y}$$
+    \end{alertblock}
+    
+
+\end{frame}
+
+
+
+\section{סטיות ויציאה מש''מ}
 \begin{frame}
     \frametitle{גרף}
     \begin{center}
@@ -183,33 +247,5 @@
     
 
 \end{frame}
-
-
-\section{מצב יציב - S.S - Steady State}
-\begin{frame}
-    \frametitle{מצב יציב}
-    \begin{block}{מצב יציב}
-        \begin{equation}
-            k_{ss} = \left(\frac{sA}{n+d}\right) ^ {\frac{1}{1-\alpha}}
-        \end{equation}
-        \begin{equation}
-            y_{ss} = A \cdot k_{ss}^\alpha
-        \end{equation}
-        
-    \end{block}
-    
-    \begin{alertblock}{הערות}
-        \begin{enumerate}
-            \item המשוואה השנייה היא היא פשוט המשוואה הרגילה אבל עם הצבה של $k_{ss}$
-            \item כפי שניתן לראות ש''מ ישתנה רק אם יהיה שינוי ב $A,d,n,s$
-            \item מדינות עם נתוני משק זהים התכנסו לאותו ש''מ
-        \end{enumerate}
-    \end{alertblock}
-\end{frame}
-
-
-
-\section{סטיות ויציאה מש''מ}
-
 \end{RTL}
 \end{document}
