@@ -3,6 +3,7 @@
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
 \usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % This line removes the headline template
 \usepackage{xcolor}
 \beamertemplatenavigationsymbolsempty
 \usepackage{tikz}
@@ -208,7 +209,7 @@
     \begin{center}
         \begin{tikzpicture}
         \begin{axis}[
-            title={סולו מודל},
+            % title={סולו מודל},
             xlabel={$k$},
             ylabel={$y$},
             xmin=0, xmax=10,
@@ -230,8 +231,8 @@
             domain=0:10, 
             samples=100, 
             color=blue,
-        ]{2*x*0.1}; % Depreciation line, example 10% of K
-        \addlegendentry{לעובד הון שחיקת}
+        ]{3*x*0.1}; % Depreciation line, example 10% of K
+        \addlegendentry{לעובד הון שחיקת = $n+d$}
 
         % Savings function
         \addplot[
@@ -239,7 +240,7 @@
             samples=100, 
             color=darkgreen,
         ]{2*0.3*x^(0.5)}; % Savings function, example 30% of Y
-        \addlegendentry{לעובד חיסכון}
+        \addlegendentry{לעובד חיסכון = $sy = sf(k)$}
         
         \end{axis}
         \end{tikzpicture}
@@ -247,5 +248,80 @@
     
 
 \end{frame}
+
+\begin{frame}
+    \frametitle{עוד גרף}
+    \begin{figure}[h!]
+        \centering % Center the plot in the document
+        \begin{tikzpicture}
+        \begin{axis}[
+            axis lines=left, % Position of axis lines
+    ticks=none, % Removes the ticks and tick labels
+    clip=false, % Prevents clipping of elements outside the axis
+    xmax=10, ymax=3, % Defines the range of the axes
+    every axis y label/.style={at={(axis description cs:-0.1,1.05)},anchor=south}, % Positions the y-axis label
+    every axis x label/.style={at={(axis description cs:1.05,-0.1)},anchor=west}, % Positions the x-axis label
+    xlabel={$k$}, % Set the label for the x-axis
+    ylabel={$y$}, % Set the label for the y-axis
+        ]
+        
+        % Add the 'n+d' line
+        \addplot [domain=0:10, samples=100, smooth, thick, red] {0.1*x};
+        \addlegendentry{$n+d$}
+        
+        % Add the 'y=k^a' line
+        \addplot [domain=0:10, samples=100, smooth, thick, black] {x^0.5};
+        \addlegendentry{$y=k^{\alpha}$}
+        
+        % Add the 'sy=sk^a' line
+        \addplot [domain=0:10, samples=100, smooth, thick, darkgreen] {0.2*x^0.5};
+        \addlegendentry{$sy=sk^{\alpha}$}
+        
+        % Add vertical dashed lines
+        \draw [dashed,blue] (axis cs:2,0) -- (axis cs:2,2^0.5);
+        \draw [dashed] (axis cs:4,0) -- (axis cs:4,4^0.5);
+        \draw [dashed,red] (axis cs:6,0) -- (axis cs:6,6^0.5);
+        
+        % Add horizontal dashed lines
+        \draw [dashed,blue] (axis cs:0,2^0.5) -- (axis cs:2,2^0.5);
+        \draw [dashed] (axis cs:0,4^0.5) -- (axis cs:4,4^0.5);
+        \draw [dashed,red] (axis cs:0,6^0.5) -- (axis cs:6,6^0.5);
+        
+        % Add annotations for 'Kss' and 'Yss'
+        \node at (axis cs:2,-0.5) {$K_{ss}$};
+        \node at (axis cs:4,-0.5) {$K_{ss}$};
+        \node at (axis cs:6,-0.5) {$K_{ss}$};
+        \node at (axis cs:-0.5,2^0.5) {$Y_{ss}$};
+        \node at (axis cs:-0.5,4^0.5) {$Y_{ss}$};
+        \node at (axis cs:-0.5,6^0.5) {$Y_{ss}$};
+        
+        \end{axis}
+        \end{tikzpicture}
+        \caption{Plot of the economic functions} % Caption for the plot
+        \end{figure}
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{סטיות ויציאה מש''מ}
+    \begin{alertblock}{הצבר הון שלילי}
+        כאשר אנחנו ב $k$ גבוהה יותר מ $k_{ss}$ ולכן השקעה הנדרשת  היא גבוהה יותר מההשקעה בפועל
+        $$
+        k < 0 \quad \hat y < 0 \quad \hat Y < n 
+        $$
+    \end{alertblock}
+
+    \begin{block}{הצבר הון חיובי}
+        כאשר אנחנו ב $k$ שהוא נמוך יותר מ $k_{ss}$ לכן השקעה בפועל היא גדולה יותר מהשקעה הנדרשת
+        \begin{equation*}
+            k > 0 \quad \hat y > 0 \quad \hat Y > n 
+        \end{equation*}
+    \end{block}
+    
+
+\end{frame}
+
+
 \end{RTL}
 \end{document}
