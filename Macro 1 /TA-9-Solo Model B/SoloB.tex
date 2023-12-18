@@ -1,0 +1,139 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title{תרגול 10 - צמיחה ב'}
+\author{\texthebrew{ מתן לבינטוב}}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+\end{frame}
+
+\section{אופטימום חברתי}
+
+
+\begin{frame}[allowframebreaks]
+    \frametitle{אופטימום חברתי}
+    \begin{block}{הגדרה}
+        לפי הגדרה, אופטימום חברתי הינו מצב יציב, כלומר Steady State, שבוא רמת החיים, שבמודל שלנו היא הצריכה לעובד היא מקסימלית. \\
+        קיימים 3 תנאים שמתקיימים באופטימום חברתי : 
+        \begin{itemize}
+            \item $MPK^{GR} = n + d  $, כלומר שיפוע המשיק בנקודה שווה לשיפוע של הקו שחיקת ההון
+            \item $s = \alpha$ שיעור החיסכון שווה לחזקה של ההון בפונקציית היצור
+            \item כלל הזהב שמתקבל הינו : $r = n$, כלומר הריבית שווה לשיעור הריבוי
+        \end{itemize}  
+    \end{block}
+
+    \framebreak
+
+    \begin{alertblock}{חיסכון חסר}
+        $$s < \alpha \implies k < k^{GR} \implies MPK > MPK^{GR} \implies r > n$$
+        פיתרון הינו הגדלת החיסכון על ידי צמצום פיסקלי או העלת מיסים 
+        $$G \downarrow  / T \uparrow \implies s \uparrow \implies k \uparrow \implies MPK \downarrow \implies r \downarrow$$
+    \end{alertblock}
+
+    \begin{exampleblock}{חיסכון יתר}
+        $$s > \alpha \implies k > k^{GR} \implies MPK < MPK^{GR} \implies r < n$$   
+        הפיתרון הינו צמצום החיסכון על ידי הורדת מיסים או הרחבה פיסקלית
+        $$G \uparrow  / T \downarrow \implies s \downarrow \implies k \downarrow \implies MPK \uparrow \implies r \uparrow$$
+    \end{exampleblock}
+    
+
+\end{frame}
+
+\section{שיפורים טכנולוגיים}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{שיפורים טכנולוגיים}
+    \begin{block}{מודל העובד המתייעל}
+        קיים מקדם יעילות $E$ שמסמן את יעילות כוח העבודה $L$, נניח שמקדם היעילות צומח בקצב קבוע $g$. \\
+        לכן פונקציית היצור החדשה נראת כך : 
+        $$Y =  A K^{\alpha} \left(EL\right) ^ {1-\alpha}$$
+        לכן נעבור מלדבר על עובדים לעובדים יעילים, כלומר במקום לחלק ב$L$ נחלק ב $EL$.
+        $$\tilde{y} = A \tilde{k}^\alpha$$
+
+    \end{block}
+    מושגים : 
+    \begin{itemize}
+        \item תוצר לעובד אפקטיבי \quad $\dfrac{Y}{LE} = \dfrac{y}{E} = \tilde{y}$
+        \item הון לעובד אפקטיבי \quad $\dfrac{K}{LE} = \dfrac{k}{E} = \tilde{k}$
+    \end{itemize}
+
+
+    \framebreak
+
+    \begin{block}{שיעור השינוי ב - $SS$}
+        \begin{equation*}
+            \begin{aligned}
+            & \hat{\tilde{y}}=\hat{\tilde{k}}=0 \\
+            & \hat{k}=\hat{y}=\widehat{(\tilde{y} E)}=\hat{\tilde{y}}+\hat{E}=0+g=g \\
+            & \widehat{K}=\hat{Y}=(\widehat{\tilde{y} L E})=\hat{\tilde{y}}+\hat{L}+\hat{E}=0+n+g=n+g
+        \end{aligned}
+        \end{equation*}
+    \end{block}
+    מכך שמשוואת התנועה החדשה היא:
+    \begin{equation*}
+        \dot{\tilde{k}}=s \tilde{y}-(n+d+g) \tilde{k}
+    \end{equation*}
+    ו $\tilde{k_{ss}}$ הוא : 
+    \begin{equation*}
+        \tilde{k}_{s s}=\left[\frac{s A}{n+d+g}\right]^{\frac{1}{1-\alpha}}
+    \end{equation*}
+
+    \framebreak
+
+\end{frame}
+
+\section{מסקנות חשובות בפונקציית קוב דאגלס}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{מסקנות חשובות בפונקציית קוב דאגלס}
+    \begin{itemize}
+        \item במצב עמיד הריבית הריאלית קבועה : 
+        $$r = mpk - d = A\alpha \tilde{k} ^ {\alpha - 1 } - d $$
+        \item לעומת המודל המקורי, במקרה הזה, השכר צומח בקצב $g$ $$\frac{W}{P} = MPL = A E \left(1 - \alpha \right) \tilde{k} ^ \alpha$$
+        \item התמורה היחסית של כל גורם יצור קבועה לאורך הזמן (זה נכון בכללי עם קוב דאגלס ולא ספציפית בגלל העובד המתייעל) : $$S_k = \frac{MPK \cdot K}{Y } = \frac{A \alpha K^{\alpha - 1 } L ^{1 - \alpha} K }{A K^\alpha L^{1-\alpha}} = \alpha$$ $$
+        {S}_L=\frac{M P L * L}{Y}=\frac{A(1-\alpha) K^\alpha L^{-\alpha} L}{A K^\alpha L^{1-\alpha}}=1-\alpha
+        $$
+        \item יחס הון תוצר קבוע לאורך זמן : $$\frac{K}{Y} = \frac{\tilde{k}}{\tilde{y}} = \frac{s}{n+d+g}$$
+    \end{itemize}
+    
+
+\end{frame}
+
+\end{RTL}
+\end{document}
