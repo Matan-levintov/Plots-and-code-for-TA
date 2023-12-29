@@ -1,0 +1,135 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Copenhagen}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title{מאקרו א' - תרגול 11 צמיחה ג'}
+\author{\texthebrew{ מתן לבינטוב}}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+\date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+\end{frame}
+
+\section{צמיחה אנדוגנית}
+\begin{frame}[allowframebreaks]
+    \frametitle{צמיחה אנדוגנית}
+    הרמה הטכנולוגית תלויה בהון לעובד, כאשר מלאי ההון לעובד במשק עולה הרמה
+    הטכנולוגית עולה. עובדה זו יכולה לגרום לכך שלהון לעובד לא בהכרח יתקיים תפוקה
+    שולית פוחתת.
+    \\
+    נניח מקדם אנושי - $h$, כאשר $h = \mu k $
+    $$Y = AF\left(K,hL\right) \implies y = \underbrace{AF\left(\mu\right)}_{\bar A} \implies y =\bar A k$$
+    כעת משוואת התנועה היא : 
+    $$\dot k = s\bar A k - \left(n+d\right) k \implies \left(s \bar A - (n+d)\right)\cdot k$$
+    מהמשוואה החדשה הזאת אפשר להסיק כמה מסקנות מאוד חשובות
+    
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{מסקנות חשובות עם צמיחה אנדוגנית}
+    \begin{itemize}
+        \item המשק יכול להיות או בהצבר הון חיובי ותמיד לצמוח, כלומר לא יהיה מצב עמיד או בהצבר הון שלילי ואז לקטון עד כדי קריסה $k=0$
+        \begin{tikzpicture}[scale=0.95]
+            \begin{axis}[
+                axis lines = left,
+                xlabel = $k$,
+                ylabel = $y$,
+                xmin=0, xmax=14,
+                ymin=0, ymax=14,
+                legend pos=north west,
+            ]
+            
+            
+            % Add the lines
+            \addplot [domain=0:12, samples=200, color=black] {x} node[above] {$y = ak$};
+            \addplot [domain=0:12, samples=200, color=darkgreen] {0.6*x} node[above]{$sy = sak$};
+            \addplot [domain=0:12, samples=200, color=red] {0.3*x} node[above] {$(n + d)k$};
+            
+            \end{axis}
+            \end{tikzpicture}
+        
+
+        \framebreak
+
+        \item שיעור צמיחת ההון לעובד, תלוי בשיעור החיסכון : $$\widehat k = \frac{\dot k}{k} = \frac{\left(s \bar A - (n+d)\right) \cdot k}{k} = s \bar A - (n+d) $$
+        \item שיעור צמיחת התוצר לעובד שווה לשיעור צמיחת ההון לעובד : $$\widehat y = \frac{MPK \cdot \dot k}{y} = \frac{\bar A \cdot \dot k }{\bar A \cdot k} = \frac{\dot k}{k} = \widehat k $$
+        
+    \end{itemize}
+
+
+\end{frame}
+
+
+\section{חשבונאות צמיחה}
+\begin{frame}[allowframebreaks]
+    \frametitle{חשבונאות צמיחה}
+    \begin{block}{פונקציית יצור תק''ל}
+        פונקציית יצור כגון $Y = A K^\alpha L^{1-\alpha}$ מקיימת תק''ל ולכן :
+        $$Y = MPK \cdot K + MPL \cdot L$$
+        נזכור ש : 
+        \begin{enumerate}
+            \item $MPK = i_c = \alpha k $
+            \item $MPL = \frac{W}{P} =  (1-\alpha) y $
+        \end{enumerate}
+
+        נהפוך את הפונקציה למושגי שיעורי השינוי (או הדפרנציאל השלם) :
+        $$\widehat Y = \widehat A + S_k \cdot \widehat K + S_L \cdot  \widehat L$$
+        כאשר $S_K$ היא הגמישות החלקית של ההון בתוצר ו$S_L$ היא הגמישות החלקית של העבודה בתוצר.
+    \end{block}
+
+    \framebreak
+    \begin{block}{קוב דאגלס}
+        בקוב דאגלס \textbf{תמיד} :
+        $$S_L = (1-\alpha), \quad S_K = \alpha$$
+    \end{block}
+
+    \begin{block}{הפיריון הכולל}
+        $A$ הוא הפיריון הכולל, לפעמים גם קרוי השארית של סולו משום שהוא תמיד מחושב בתור שארית.
+        $$
+\widehat{A}=\widehat{Y}-\alpha \widehat{K}-(1-\alpha) \widehat{L}
+$$
+    \end{block}
+    
+
+\end{frame}
+
+
+\end{RTL}
+\end{document}
