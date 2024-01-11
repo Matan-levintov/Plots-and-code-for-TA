@@ -27,7 +27,7 @@
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
-\title[]{{מאקרו א' - תרגול  8 - כלכלה בטווח הארוך}}
+\title[]{{מאקרו א' - תרגול  7 - כלכלה בטווח הארוך}}
 \author{\texthebrew{ מתן לבינטוב}}
 \institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
 \date{}
@@ -115,7 +115,7 @@
     \end{frame}
 
     \section{הפירמה }
-    \begin{frame}
+    \begin{frame}[allowframebreaks]
         \frametitle{הפירמה}
         \begin{block}{פונקציית הרווח של הפירמה}
             $$\pi = PY - WL - RK = P \cdot AF(K,L) - WL - RK $$
@@ -128,10 +128,100 @@
 
             $i_c$ = מחיר ההון הריאלי של הפרימה
         \end{block}
+
+        \framebreak
+
+        \begin{alertblock}{שימו לב!}
+            בגלל שאמרנו שגורמי היצור קבועים בטווח ארוך ניתן למצוא את מחיר הריאלי ההון ואת השכר הריאלי
+        \end{alertblock}
         
     
     \end{frame}
 
+    \section{חלוקת התוצר בין גורמי היצור}
+    \begin{frame}[allowframebreaks]
+        \frametitle{חלוקת התוצר בין גורמי היצור}
+        \begin{block}{משפט אוילר}
+            על פי משפט אוילר ובהינתן העובדה שהפונקציה היא הומוגנית מדרגה 1 :
+            \begin{equation*}
+                Y  = \frac{\partial Y}{\partial K} K + \frac{\partial Y}{\partial L} L
+            \end{equation*} 
+            בשפה כלכלית נקבל (פשוט להציב את המושגים / ערכים שהגדרנו) : 
+            \begin{equation*}
+                Y = MPK \cdot  K + MPL \cdot  L = i_c \cdot K + \frac{W}{P} \cdot L
+            \end{equation*}
+            \begin{itemize}
+                \item $i_c \cdot K$ - תמורה ריאלית של ההון
+                \item $\frac{W}{P} \cdot L$ - תמורה ריאלית של עובדים
+            \end{itemize}
+        \end{block}
+        
 
+        \framebreak
+        \begin{block}{החלוקה היחסית של התוצר בין גורמי היצור}
+            נמשיך עם המשוואה שקיבלנו בשקופית הקודמת ונחלק את שני האגפים ב $Y$, נקבל : 
+            \begin{equation*}
+               \underbrace{ \frac{i_c \cdot K}{Y}}_{S_K} + \underbrace{\frac{\frac{W}{P} \cdot L}{Y}}_{S_L} = 1 \implies S_K + S_L = 1 
+            \end{equation*}
+
+            \begin{itemize}
+                \item $S_K$ - חלקו היחסי של ההון
+                \item $S_L$ - חלקו היחסי של העובדים
+            \end{itemize}
+        \end{block}
+
+
+        \framebreak
+        לשים פה גרף יפה
+    \end{frame}
+
+    \section{פונקציית קוב דאגלס}
+    \begin{frame}[allowframebreaks]
+        \frametitle{פונקציית קוב דאגלס}
+        \begin{equation*}
+            Y = AF(K,L) = K^{\a} L^{\beta}
+        \end{equation*}
+
+        \begin{equation*}
+            Y(\lambda) = AF(\lambda K, \lambda L) = (\lambda K ) ^ \alpha (\lambda L) ^ \beta = \lambda ^ {\alpha + \beta} \cdot K ^ \alpha \cdot L ^ \beta = \lambda ^{\alpha + \beta} Y
+        \end{equation*}
+        
+        \begin{block}{תשואה לגודל}
+            \begin{enumerate}
+                \item $\alpha + \beta > 1 $ -  תשואה עולה לגודל
+                \item $\alpha + \beta = 1 $ -  תשואה קבועה לגודל
+                \item $\alpha + \beta < 1 $ -  תשואה יורדת לגודל
+            \end{enumerate}
+        \end{block}
+    
+        \framebreak
+
+        \begin{block}{חלקים יחסיים בקוב דאגלס}
+            $$S_K = \frac{MPK \cdot K}{Y} = \frac{\alpha \cdot A \cdot K^{\alpha - 1} \cdot L^\beta \cdot K}{AK^\alpha L^\beta} = \alpha$$
+            $$S_L = \frac{MPL \cdot L}{Y} = \frac{\beta \cdot A \cdot K^{\alpha} \cdot L^{\beta - 1 } \cdot L }{AK^\alpha L^\beta} = \beta$$
+        \end{block}
+
+    \end{frame}
+
+
+    \section{התחלקות התוצר בשימושים}
+    \begin{frame}
+        \frametitle{התחלקות התוצר בשימושים}
+        \begin{block}{לפי דוח מקו''ש}
+        $$\bar Y = C(\bar Y - T) + G_0 + I(r)$$  
+        אפשר לראות שהמשתנה האנדוגני היחיד הוא הריבית, שבעזרתו הביקוש מתאים את עצמו לתוצר.      
+        \end{block}
+        הבהרה : הסוגריים זה לא כפל, הכוונה בפונקציה של מה, לדוגמה צריכה היא פונקציה של מיסים ותוצר.
+        
+        \begin{block}{שוק ההון}
+            הריבית נקבעת בשוק ההון $I = S$
+            \begin{enumerate}
+                \item כאשר $I > S$ היצע החיסכון במשק נמוך מהביקוש להשקעות, לכן הריבית תעלה עד שהתקיים $I = S$
+                \item כאשר $I < S$ היצע החיסכון במשק גדול יותר מהביקוש להשקעות , לכן הריבית תרד עד שתהקיים $I = S,mn$
+            \end{enumerate}
+        \end{block}
+        
+    
+    \end{frame}
 \end{RTL}
 \end{document}
