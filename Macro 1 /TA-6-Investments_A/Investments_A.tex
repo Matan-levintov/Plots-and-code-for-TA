@@ -26,10 +26,10 @@
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
-\title[]{{מאקרו א' - תרגול 7 - השקעות א'}}
+\title[]{{מאקרו א' - תרגול 6 - השקעות א'}}
 \author{\texthebrew{ מתן לבינטוב}}
 \institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
-\date{10 לדצמבר 2023}
+\date{}
 \usepackage{bidi}
 \begin{document}
 \begin{RTL}
@@ -51,7 +51,7 @@
     נניח פונקציות יצור שמקיימת תכונות מתמטיות אהובות ושימושיות בכלכלה, לדוגמה Cobb-Douglas :
     \[Y = f\left(K,L\right) = AK^{\ \alpha} L^{1-\alpha}\]
     פירמה תגדיל את ההון שלה עד שערך התפוקה השולית של ההון שווה לעלות השולית של ההון:
-    \[f^{\ \prime}_K = r + d \]
+    \[f^{\ \prime}_K = r + d = R \]
     
 
 \end{frame}
@@ -69,27 +69,29 @@
     \end{itemize}
     \begin{align*}
     q &= \frac{\text{ערך ההון של הפירמה / שווי הפירמה}}{\text{עלות ההון הקיים}}  \\  
-    q^{\ \prime} &= q_{\ \text{שולי}} = \frac{\text{עלות יחידת הון}}{\text{מחיר הכסף}} 
-     = \frac{mpk - d}{r}
+    % q^{\ \prime} &= q_{\ \text{שולי}} = \frac{\text{עלות יחידת הון}}{\text{מחיר הכסף}} 
+    %  = \frac{mpk - d}{r}
     \end{align*}
     \framebreak
     \begin{block}{הסבר אלגברי + כלכלי}
         \begin{enumerate}
-            \item $q > 1 \implies mpk - d > r \implies k \uparrow \implies mpk \downarrow \implies q \downarrow$
-            \item $q < 1 \implies mpk - d < r \implies k \downarrow \implies mpk \uparrow \implies q \uparrow$
+            % \item $q > 1 \implies mpk - d > r \implies k \uparrow \implies mpk \downarrow \implies q \downarrow$
+            % \item $q < 1 \implies mpk - d < r \implies k \downarrow \implies mpk \uparrow \implies q \uparrow$
+            \item $q > 1 \implies \text{הפירמה קונה הון} \implies k \uparrow  \implies q \downarrow$
+            \item $q < 1 \implies \text{הפירמה מוכרת הון}  \implies k \downarrow \implies q \uparrow$
         \end{enumerate}
 
     \end{block}
     \begin{block}{הסבר במילים}
         \begin{enumerate}
-            \item $q>1$ הפירמה תמכור מניות ותקנה עוד הון עם הכסף הזה, בגלל שיותר זול לגייס ככה כסף
-            \item $q<1$ הפירמה לא יעילה, יש לה יותר מידי הון ולכן היא תמכור את ההון דבר שיגדיל את ה $q$ 
+            \item $\impliedby q>1$ הפירמה תקנה עוד הון בגלל שהוא נותן יותר רווחים ממה שהוא עולה. בגלל תפוקה שולית יורדת המונה עולה בפחות מאשר המכנה ולכן $q$ יורד
+            \item $\impliedby q<1$ הפירמה לא יעילה, הרווחים המהוונים שלה הם קטנים יותר מאשר עלות ההון שלה, הפירמה מוכרת הון, בגלל תפוקה שולית פוחת המכנה קטן יותר מאשר המונה ולכן $q$ עולה 
         \end{enumerate}
     \end{block}
    
 
-    \begin{alertblock}{טווח ארוך}
-        בטווח הארוך $q=1$ כי פירמות שהיו עם $q>1$ מכרו מניות וקנו עוד הון  ופירמות שה$q<1$ נסגרו או מכרו הון והתייעלו
+    \begin{alertblock}{יעילות}
+        הפירמה נמצאת במלאי הון אופטימלי כאשר $q = 1$.
     \end{alertblock}
 \end{frame}
 \section{מודל מאיירס - אינפורמציה לא סימטרית בשוק ההון}
