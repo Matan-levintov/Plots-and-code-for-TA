@@ -10,7 +10,7 @@ def translate_to_64(id : str, course_code : str, semester: str, year:str):
 
 
 
-print(translate_to_64("208682666", "1221", "1", "142"))
+print(translate_to_64("213061740", "14225021", "1", "2024"))
 
 
 
@@ -20,4 +20,3 @@ print(translate_to_64("208682666", "1221", "1", "142"))
 
 
 
-# 208682666:2024:1:0:1:142.1.1221:1:1

@@ -1,0 +1,183 @@
+% !TEX program = xelatex
+\documentclass{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usepackage{fontspec}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{positioning, arrows.meta, shapes}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+% {Hadasim CLM}
+% \newfontfamily{\hebrewfontsf}[Script=Hebrew]{Miriam CLM}
+% \newfontfamily{\hebrewfonttt}[Script=Hebrew]{Miriam Mono CLM}
+
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{אבטלה בטווח ארוך}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \tableofcontents[sectionstyle=show,
+    subsectionstyle=show/shaded/hide,
+    subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+\section{הגדרות}
+\begin{frame}[allowframebreaks]{הגדרות}
+    \begin{enumerate}
+        \item אוכלוסיה - כל האוכלוסייה כולל תינוקות.
+        \item אוכלוסיה בגיל העבודה $(N)$ - בני 15+ 
+        \item כוח העבודה $(L)$ - כל מי שעובד כרגע $(E)$ וכל מי שלא עובד אבל יכול ומוכן לעבוד ($U$), לא כולל סטודנטים, חיילים בסדיר (החל מ2012 כולל חיילים בקבע), תלמידים , פנסיורים, לא כולל אנשים שחיפשו עבודה והתייאשו.
+        \item שיעור השתתפות בכוח העבודה - כוח העבודה / אוכלוסייה בגיל העבודה - $$\frac{U + E}{N} = \frac{L}{N}$$
+        \item מובטלים - כל מי ששייך לכוח עבודה אך לא מצא עבודה $\left(U\right)$
+        \item שיעור האבטלה - $$\frac{U}{U+E}$$
+    \end{enumerate}
+    
+    \framebreak
+
+    \begin{block}{שימו לב, לאדם מובטל יש 2 אופציות לצאת מהגדרת המובטל}
+        \begin{enumerate}
+            \item למצוא עבודה ולחזור למעגל העבודה (גורם לירידה במספר המובטלים)
+            \item להתייאש מחיפוש עבודה (גורם לירידה גם במספר המובטלים וגם לכוח העבודה)
+        \end{enumerate}
+    \end{block}
+\end{frame}
+\section{אבטלה חיכוכית}
+\begin{frame}[allowframebreaks]{אבטלה חיכוכית}
+    הדינמיקה של שוק העבודה : 
+    \begin{center}
+        \begin{tikzpicture}[
+            box/.style={rectangle, draw, minimum width=2.5cm, minimum height=1cm, fill=orange!30},
+            myarrow/.style={-Stealth, thick, blue}
+        ][H]
+        
+        \node[box] (box1) {מועסקים};
+        \node[box, right=of box1] (box2) {מובטלים};
+        
+        \draw[myarrow] (box1.north) to[bend left] node[above] {$s \times E$} (box2.north);
+        \draw[myarrow] (box2.south) to[bend left] node[below] {$f \times U$} (box1.south);
+        
+        \end{tikzpicture}    
+    \end{center}
+    $s$ - הסיכוי של בן אדם מועסק להיות מפוטר \\
+    $f$ - הסיכוי של בן אדם מובטל למצוא עבודה
+
+    \framebreak
+
+    \begin{block}{שיעור אבטלה טבעי}
+        \begin{equation}
+            \Delta U =U_{t + 1} - U_t \ = \underbrace{- f\cdot U_t}_{\text{מובטלים שמצאו עבודה}} + \underbrace{s\cdot E_t}_{\text{מועסקים שפוטרו}}
+        \end{equation}
+
+        אנו רוצים למצוא מתי ,$\Delta U = 0$ כלומר, מתי האבטלה היא יציבה, שזה אומר.
+
+            
+        \begin{equation}
+            - f\cdot U_t + s\cdot E_t = 0 \iff \frac{U}{L}=u^* = \frac{s}{f + s} 
+        \end{equation}
+        
+        מקבלים מ (2) כמה תוצאות די אינטואיטיביות:
+        \begin{enumerate}
+            \item ככל שהסיכוי לאבד את העבודה הוא גדול יותר, כך שיעורי האבטלה יהיה גדול יותר
+            \item ככל שהסיכוי של מובטל למצוא עבודה יהיה גדול יותר, כך שיעורי האבטלה יהיה נמוך יותר
+        \end{enumerate}
+    \end{block}
+
+    \framebreak
+
+    \begin{block}{סיבות לאבטלה חיכוכית}
+        \begin{enumerate}
+            \item עובדים ומשרות הטרוגניות
+            \item אינפומרציה א-סימטרית
+            \item קליטת עובדים כרוכה בהשקעה של זמן וכסף
+            \item בררננות מצד מעסיקים ועובדים
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+\section{אבטלה מבנית}
+\begin{frame}[allowframebreaks]
+    \frametitle{אבטלה מבנית (כשלים בשוק העבודה)}
+    סיבות לאבטלה מבנית : 
+    \begin{itemize}
+        \item ארגוני עובדים (היצע עבודה לא תחרותי)
+        \item מונופסון - מעסיק יחיד (ביקוש לעבודה לא תחרותי)
+        \item שכר מינימום
+        \item תאוריית שכר הסף
+    \end{itemize}
+
+    \framebreak
+    \begin{block}{מודל מונופסון}
+        המודל דומה למונופול בשוק המוצרים רק הפוך, מטרת המונופסון היא להעסיק את העובדים בצורה הזולה ביות , המעסיק ישווה את הביקוש שלו לעובדים לעלות השולית של העסקת העובדים \\
+        שלבים לפיתרון :
+        \begin{enumerate}
+            \item מציאת עלות כוללת של עובדים (כמות מועסקים כפול מחיר / שכר)
+            \item גזירת העלות השולית של העובדים
+            \item השוואה בין עלות שולית לביקוש $\impliedby$ זה קובע את כמות העובדים
+            \item הצבה של כמות העובדים בגרף היצע $\impliedby$ זה קובע את השכר שישולם
+        \end{enumerate}
+    \end{block}
+
+    \framebreak
+
+    \begin{block}{תאוריית שכר הסף}
+        נתאר פרט עם העדפות תחת כל הנחות שאנחנו רגילים אליהם (תועלת שולית פוחתת , עקומות שמתנהגות יפה) אשר מפיק תועלת משני מוצרים
+        \begin{enumerate}
+            \item פנאי - $l$
+            \item צריכה של מוצרים - $c$
+        \end{enumerate}
+        מגבלת התקציב היא שעלות צריכת המוצרים שלו צריכה להיות קטנה או שווה לשכר שלו. \\
+        בגלל שהעדפות הם מונוטוניות אז אנחנו יודעים בוודאות שהוא יצרוך את כל השכר שלו. \\
+        הפרט נהנה אך ורק מפנאי ותצרוכת לכן :
+        \begin{align*}
+        &\quad \max U(c,l) \\
+        & s.t \\
+        &\quad c = W \cdot (1 - l)
+      \end{align*}
+    \end{block}
+
+    שימו לב שאנחנו מנרמלים את יחידת הזמן של הפרט ל1.
+
+    \framebreak
+
+    \begin{exampleblock}{שלבים לפיתרון}
+        \begin{enumerate}
+            \item מציאת $MRS$ והשוואות לשיפוע קו התקציב (כלומר השכר $W$)
+            \item מציאת הביקוש לתנאי ותצרוכת
+            \item הצבה ומציאת הביקוש לעבודה
+        \end{enumerate}
+    \end{exampleblock}
+
+    
+
+\end{frame}
+\end{RTL}
+\end{document}
