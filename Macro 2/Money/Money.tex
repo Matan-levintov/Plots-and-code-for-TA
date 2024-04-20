@@ -1,0 +1,193 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{שוק הכסף}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+\end{frame}
+
+\section{צד הביקוש}
+\begin{frame}[allowframebreaks]
+    \frametitle{צד ביקוש}
+    \begin{block}{תורת הכמות של הכסף (הגישה הקלאסית)}
+        אנשים מחזיקים בכסף כדי לבצע עסקאות
+    \begin{itemize}
+        \item $Y$ - סך התוצר במשק בפרק זמן מסוים
+        \item $P$ - מחיר יחידת תוצר
+        \item $P \times Y$ - תוצר נומינלי, \textbf{ממד להיקף העסקאות} שמתבצעות במשק בתקופה מסוימת
+        \item $M$ - כמות הכסף המשמשת לרכישת תוצר, כמבון ש $M$ יכול להיות קטן מ התוצר הנומינלי
+        \item $M \times V$ - \textbf{כמות הכסף שמחליפה ידיים בתקופה}
+    \end{itemize}
+
+    $$M \times V = P \times Y $$
+    $$V = \frac{P \times Y}{M}$$
+
+    \end{block}
+
+    \begin{alertblock}{טווח ארוך וקצר}
+        שימו לב, שלפי הגישה הקלאסית שיעורי השינוי במהירות המחזור הוא קבוע הן בטווח קצר והן בארוך
+    \end{alertblock}
+    
+
+\end{frame}
+
+\section{מודל באומן - טובין (הגישה הקייסיאנית)}
+\begin{frame}[allowframebreaks]
+    \frametitle{מודל באומן - טובין (הגישה הקייסיאנית)}
+    \begin{block}{מניע העסקאות}
+        \begin{itemize}
+            \item זהו מודל של ניהול אופטימלי של כסף
+            \item מצד אחד יותר כסף נזיל $\impliedby$ יותר עסקאות
+            \item מצד שני יותר כסף נזיל $\impliedby$ הכנסה מריבית יורדת
+            \item משמע יש צורך לאזן בין כמות העסקאות הרצויה לבין מזעור הפסדי ריבית
+        \end{itemize}
+        בשביל למצוא את כמות המשיכות האופטימלית, נגדיר את פונקציית העלות הבאה ונמעזר 
+        $$C(N) = \underbrace{i \cdot \frac{y}{2N}}_{\text{הפסד ריבית}} + \underbrace{a \cdot N}_{\text{עלות משיכה}}$$
+
+        $$\min_{N} C(N)$$
+
+        $$N^* = \sqrt{\frac{y \cdot i}{2 \cdot a}}$$
+    \end{block}
+    לפי הגדרה, במודל, הביקוש לכסף הוא כמות הכסף הרצויה הממוצעת בחודש, לכן : 
+    $$M^d = \frac{y}{2N^*} = \sqrt{\frac{a \cdot y}{2 \cdot i}} $$
+    $$V = \sqrt{\frac{2yi}{a}}$$
+    \begin{exampleblock}{מסקנות}
+        \begin{enumerate}
+            \item $i \uparrow \implies M^d \downarrow$
+            \item $a \uparrow \implies M^d \uparrow$
+            \item $y \uparrow \implies M^d  \uparrow$
+        \end{enumerate}
+
+        
+    \end{exampleblock}
+
+    
+
+\end{frame}
+
+\section{צד היצע}
+\begin{frame}[allowframebreaks]
+    \frametitle{צד ההיצע}
+    \begin{block}{הגדרות}
+        \begin{itemize}
+            \item $M$ - כמות הכסף (כל הכסף שנמצא ברשות הציבור בין אם הוא פיזי או דיגיטלי)
+            \item $B$ - בסיס הכסף (כל הכסף הפיזי שקיים במשק)
+            \item $C$ - מזומן בידי הציבור
+            \item $D$ - פקדונות העו''ש של הציבור (כסף שהציבור הפקיד לבנק + הלוואות שלקח אל חשובון העו''ש)
+            \item $R$ - רזבות של הבנקים המסחריים
+            \item $\frac{C}{D} = cr$ - יחס מזומן עו''ש (הציבור שומר על יחס קבוע בין הכסף שהוא מחזיק במזומן לבין כסף שמוחזק בבנק)
+            \item $ \frac{R}{D} = rr$ - יחס הרזבה (יחס שהבנק נדרש לשמור עליו בין הרזבות בכספות שלו לבין הפקדונות של הלקוחות)
+        \end{itemize}
+    \end{block}
+    מכך נובעות הקשרים הבאים:
+    $$M = C + D$$
+    $$B = C + R$$
+    כמות הכסף פרופורציונלית לבסיס הכסף :
+    $$m = \frac{M}{B} = \frac{C + D}{C + R} = \frac{C/D + D/D}{C/D + R/D} = \frac{cr + 1}{cr + rr} > 1$$
+    זה בגלל ש$rr < 1$.
+    \begin{block}{במילים}
+        כאשר בסיס הכסף גדול ב1 שקל כמות הכסף גדל ב $\frac{cr + 1}{cr + rr}$.
+    \end{block}
+
+    \begin{block}{היצע הכסף}
+        היצע הכסף תלוי ב3 משתנים אקסוגנים:
+        \begin{enumerate}
+            \item $B$ - בסיס הכסף - ככל שבסיס הכסף גדול יותר כך כמות הכסף במשק תגדל
+            \item $rr$ - יחס הרזבה - ככל שיחס הרזבה קטן יותר כך היצע הכסף במשק יהיה גדול יותר
+            \item $cr$ - יחס מזומן עו''ש - ככל שיחס בין המזומן לעו''ש נמוך יותר כך היצע הכסף במשק גדול יותר
+        \end{enumerate}
+    \end{block}
+    
+
+\end{frame}
+
+
+\section{מדיניות מוניטרית}
+\begin{frame}[allowframebreaks]
+    \frametitle{מדיניות מוניטרית}
+    \begin{block}{איך זה עובד?}
+        עד כה, במודלים שלמדנו בקורס הנחנו שהבנק שולט בכמות הכסף במשק ובהתאם לכך נקבעת הריבית במשק.
+    אך בפועל התהליך הוא הפוך, הבנק המרכזי קובע את הריבית המוניטרית במשק ובהתאם אליה הוא מזרים / מושך כסף מהמשק במידת הצורך.
+
+
+    \end{block}
+    המטרה של הבנק המרכזי היא לשמור על יעד האינפלציה של המשק תוך התחשבות בתוצר ובביצועים של המשק (לדוגמה אבטלה).
+
+    \begin{block}{כלים נוספים שיש לבנק המרכזי פרט לריבית}
+        \begin{enumerate}
+            \item פקדונות והלוואות לבנקים מסחריים
+            \item מלווה קצר מועד (מק''מ)
+            \item פעילות בשוק ההון (רכישה / מכירה של אגרות חוב ממשלתיות)
+        \end{enumerate}
+    \end{block}
+    
+    \framebreak
+    \begin{block}{חשיבות הפיקוח}
+        המערכת הפיננסית משמשת כמתווכת בין מלווים לווים $\impliedby$ לכן היא דורש אמון רב מהציבור שהכסף שלהם מוגן והם תמיד יוכלו לקבל אותו בחזרה.
+        \newline
+        \\
+        על מנת לעשות ליצור אמון כזה ישנם פיקוח רב על הבנקים שחלקו בא לידי ביטוי על ידי יחס הרזבה (כרית ביטחון).
+        \newline
+        \\
+        לבנקים תמיד תהיה נטייה להסתיר מקרים של חדלות פרעון של לקוחות הבנק מכיוון שצריך להכיר בהפסד על חובות שאבדו, הנכסים הללו נקראים נכסים רעילים ואחד התפקידים של מפקח על הבנקים זה לבדוק ולחפש נכסים רעילים.
+        \newline
+        \\
+        ריצה אל הבנק - חוסר אמון של הציבור במערכת הבנקאות אשר גורמת לחלק גדול ממנו למשוך כסף מהבנק ולקריסה של מערכת הבנקאות.
+    \end{block}
+
+
+    \framebreak
+    \begin{block}{דרכים למנוע ריצה אל הבנק}
+        \begin{enumerate}
+            \item ביטוח פקדונות
+            \item מגבלות משיכה בתקופות של פאניקה
+            \item פיקוח הדוק על הבנקים
+            \item מימון חובות הבנק במקרה של פשיטת רגל
+        \end{enumerate}
+    \end{block}
+    
+
+\end{frame}
+
+
+
+
+\end{RTL}
+\end{document}
