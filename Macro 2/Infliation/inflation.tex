@@ -1,0 +1,187 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{אינפלציה}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+
+    
+
+\end{frame}
+
+\section{דגשים}
+\begin{frame}
+    \frametitle{דגשים}
+    \begin{block}{דגשים לגבי אינפלציה}
+        \begin{itemize}
+            \item הדפסת כסף חד פעמית מביאה לעליית מחירים חד פעמית ולא לאינפלציה
+            \item הדפסת כסף בשיעור קבוע מביאה לאינפלציה
+            \item הדפסת כסף לא גורמת לשינויים ריאלים בטווח הארוך אך כן לשינויים בטווח הקצר
+        \end{itemize}
+    \end{block}
+    
+
+\end{frame}
+
+\section{גרפים}
+\begin{frame}[allowframebreaks]
+    \frametitle{הרחבה מוניטרית חד פעמית}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.3, thick]
+            % Axes
+            \draw [-] (0,0) -- (5,0) node [right] {$Y$};
+            \draw [-] (0,0) -- (0,5) node [above] {$i$};
+            
+            % IS curve
+            \draw [blue] (1,4) -- (4,1) node [below right] {$IS$};
+            
+            % LM curve
+            \draw [blue] (1,1) -- (4,4) node [above right] {$LM$};
+            \draw [red] (1,0.25) -- (5,4.25) node [above right] {$LM^{\ \prime}$};
+
+
+            % Draw line at Y_bar
+            \draw [black] (2.5,0) -- (2.5,5);
+            % Labels
+            \node [below] at (0,0) {$0$};
+            \node [below] at (2.5,0) {$\bar{Y}$};
+            
+            % Dotted lines
+            \draw [dotted] (2.5,0) -- (2.5,2.5);
+            \draw [dotted] (0,2.5) -- (2.5,2.5);
+        
+          \end{tikzpicture}
+    \end{center}
+
+    \framebreak
+
+    \begin{block}{מה יקרה?}
+        \begin{enumerate}
+            \item $LM$ זזה ימינה
+            \item בטווח המיידי הכל קשיח ולכן שום דבר לא משתנה
+            \item בטווח הקצר המחירים נהפכים לגמישים ולכן תהיה עליית מחירים שתביא לקיזוז חלקי של LM
+            \item בטווח הארוך גם השכר נהפך לגמיש ולכן ההרחבה המוניטרית מתבטלת וחוזרים לאותה רמה של ריבית ותוצר
+        \end{enumerate}
+    \end{block}
+    
+    
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks] % FIX
+    \frametitle{הרחבה פיסקלית חד פעמית}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.3, thick, dot/.style={circle,inner sep=1pt,fill,name=#1}]
+
+            % Axes
+            \draw [-] (0,0) -- (5,0) node [right] {$Y$};
+            \draw [-] (0,0) -- (0,5) node [above] {$i$};
+            
+            % IS curves
+            \draw [blue] (0.5,3.5) -- (3,1) node [below right] {$IS(G_1)$};
+            \draw [red] (2.5,3.5) -- (5,1) node [below right] {$IS(G_2)$};
+            
+            % LM curves
+            \draw [blue] (0.5,1) -- (3.5,4) node [above left] {$LM(\frac{M}{P_1})$};
+            \draw [red] (1.5,1) -- (4.5,4) node [above right] {$LM(\frac{M}{P_2})$};
+          
+            % Equilibrium points
+            \node[dot=A] at (1.75,2.25) {};
+            \node[dot=B] at (3.25,2.75) {};
+          
+            % Dotted lines
+            \draw [dotted] (A) -- (1.75,0) node [below] {$Y_1$};
+            \draw [dotted] (B) -- (3.25,0) node [below] {$Y_2$};
+            \draw [dotted] (A) -- (0,2.25) node [left] {$i_1$};
+            \draw [dotted] (B) -- (0,2.75) node [left] {$i_2$};
+            
+            % Labels
+            \node [below] at (0,0) {0};
+          
+          \end{tikzpicture}
+    \end{center}
+    
+
+\end{frame}
+
+\section{תורת הכמות של הכסף}
+\begin{frame}[allowframebreaks]
+    \frametitle{תורת הכמות של הכסף}
+    \begin{block}{תורת הכמות של הכסף}
+        $$M \times V = P \times Y \implies \underbrace{\widehat{M}}_{m} + \widehat{V} = \underbrace{\widehat{P}}_{\pi} + \widehat{Y} \implies  m = \widehat{P} + \widehat{Y} - \widehat{V}$$
+    \end{block}
+    
+    \begin{block}{הגישה הקלאסית}
+        הגישה הקלאסית אומרת אומרת שבטווח הקצר והארוך $\widehat{V} = 0$ ולפי תורת כמות הכסף נקבל :
+        $$\frac{M^d}{P} = \frac{Y}{V} = KY$$
+    \end{block}
+
+    \begin{block}{גישה הקייסיאנית (העדפת הנזילות)}
+        $$\frac{M^d}{P} = M_0 + KY - hi$$
+        ובטווח הקצר $\widehat{V} \neq 0$ אך בטווח הארוך $\widehat{V} = 0$
+    \end{block}
+
+\end{frame}
+
+
+\section{אינפלציה בטווח הארוך}
+
+\section{גורמים לאינפלציה}
+\begin{frame}[allowframebreaks]
+    \frametitle{גורמים לאינפלציה}
+    \begin{itemize}
+        \item הדפסת כסף $\impliedby$ יצירת ציפיות לאינפלציה $\impliedby$ אינפלציה
+        \item גידול בהוצאות הממשלתיות $\impliedby$ עליית ריבית $\impliedby$ הדפסת כסף $\impliedby$ יצירת ציפיות לאינפלציה $\impliedby$ אינפלציה
+        \item גריעון $\impliedby$ עלייה בחוב $ \impliedby$ הדפסת כסף למימון החוב $\impliedby$ יצירת ציפיות לאינפלציה $\impliedby$ אינפלציה
+    \end{itemize}
+    
+    \framebreak
+
+    \begin{block}{תזכורת לגבי אג''ח}
+        \begin{itemize}
+        \item  אג''ח צמוד - משלם ריבית ריאלית + הצמדה למדד המחירים $\impliedby$ כלומר הוא לא מושפע מהפערים בין אינפלציה צפויה לאינפלציה בפועל
+        \item אג''ח לא צמוד - משלם ריבית נומינלית $\impliedby$ כלומר הוא כן מושפע מפערים בין אינפלציה צפויה לאינפלציה בפועל
+        \end{itemize}
+        
+    \end{block}
+
+\end{frame}
+\end{RTL}
+\end{document}
