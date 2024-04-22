@@ -79,7 +79,7 @@
             % Draw line at Y_bar
             \draw [black] (2.5,0) -- (2.5,5);
             % Labels
-            \node [below] at (0,0) {$0$};
+            % \node [below] at (0,0) {$0$};
             \node [below] at (2.5,0) {$\bar{Y}$};
             
             % Dotted lines
@@ -116,28 +116,35 @@
             
             % IS curves
             \draw [blue] (0.5,3.5) -- (3,1) node [below right] {$IS(G_1)$};
-            \draw [red] (2.5,3.5) -- (5,1) node [below right] {$IS(G_2)$};
+            \draw [red] (1.5,3.5) -- (4,1) node [below right] {$IS(G_2)$};
             
             % LM curves
-            \draw [blue] (0.5,1) -- (3.5,4) node [above left] {$LM(\frac{M}{P_1})$};
-            \draw [red] (1.5,1) -- (4.5,4) node [above right] {$LM(\frac{M}{P_2})$};
+            \draw [blue] (0.5,1) -- (3.5,4) node [above right] {$LM(\frac{M}{P_1})$};
+            \draw [red] (-0.5,1) -- (2.5,4) node [above left] {$LM(\frac{M}{P_2})$};
           
             % Equilibrium points
             \node[dot=A] at (1.75,2.25) {};
-            \node[dot=B] at (3.25,2.75) {};
+            \node[dot=B] at (2.25,2.75) {};
           
             % Dotted lines
             \draw [dotted] (A) -- (1.75,0) node [below] {$Y_1$};
-            \draw [dotted] (B) -- (3.25,0) node [below] {$Y_2$};
+            \draw [dotted] (B) -- (2.25,0) node [below] {$Y_2$};
             \draw [dotted] (A) -- (0,2.25) node [left] {$i_1$};
             \draw [dotted] (B) -- (0,2.75) node [left] {$i_2$};
             
             % Labels
-            \node [below] at (0,0) {0};
+            % \node [below] at (0,0) {0};
           
           \end{tikzpicture}
     \end{center}
-    
+    \framebreak
+    \begin{block}{מה יקרה?}
+        \begin{enumerate}
+            \item $IS$ זזה ימינה
+            \item בטווח המידיי הכל קשיח ולכן שום דבר לא משתנה
+            \item בטווח הארוך גם השכר וגם המחירים נהפכים לגמישים, בגלל עודף הביקוש יש עליית מחירים מה שגורם להזזה שמאלה של עקומת $LM$ ולכן חוזרים לאותה רמת תוצר אבל עם ריבית גבוהה יותר
+        \end{enumerate}
+    \end{block}
 
 \end{frame}
 
