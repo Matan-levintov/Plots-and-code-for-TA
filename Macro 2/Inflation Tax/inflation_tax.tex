@@ -1,0 +1,173 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{מס אינפלציה וסניורז'}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+    
+
+\end{frame}
+\section{דרכי מימון של הממשלה והשפעת על החוב הציבורי}
+\begin{frame}
+    \frametitle{דרכי מימון של הממשלה והשפעת על החוב הציבורי}
+    \begin{itemize}
+        \item מימון על ידי העלת מיסים (חוב ציבורי לא גדל)
+        \item מימון על ידי הלוואה מהציבור (חוב ציבורי גדל)
+        \item מימון על ידי הדפסת כסף (חוב ציבורי לא גדל)
+    \end{itemize}
+    
+
+\end{frame}
+
+\section{סניורז  $SE$ }
+\begin{frame}
+    \frametitle{סניורז $SE$}
+    \begin{block}{סניורז' - הכנסות הממשלה מהדפסת כסף}
+        $$SE = \frac{M_t - M_{t-1}}{P_t} = \frac{\Delta M}{P} = \frac{\Delta M}{M} \cdot \frac{M}{P} = m \cdot \frac{M}{P}$$
+        לפי תורת כמות הכסף,
+        $$SE = m \cdot \frac{M}{P} = (\pi + \widehat{Y} - \widehat V) \cdot \frac{M}{P}$$
+    \end{block}
+    \begin{itemize}
+        \item $\widehat{V} \cdot \dfrac{M}{P}$ - אנחנו מניחים ששינוי במהירות המחזור יכול להיות רק בטווח הקצר, ולכן בטווח ארוך $\widehat{V} = 0$
+        \item $\widehat{Y}\cdot \dfrac{M}{P}$ - מס צמיחה
+        \item $\pi \cdot \dfrac{M}{P}$ - מס אינפלציה
+    \end{itemize}
+    
+
+\end{frame}
+
+\section{מס אינפלציה}
+\begin{frame}[allowframebreaks]
+    \frametitle{מס אינפלציה}
+    הממשלה שולטת ברמת האינפלציה היות והיא קובעת כמה כסף להדפיס אך היא לא שולטת לחלוטין במס האינפלציה,
+
+    \begin{itemize}
+        \item מצד אחד, $$\pi \uparrow \implies IT \uparrow$$
+        \item מצד שני, $$\pi \uparrow \implies i \uparrow \implies \frac{M^d}{P} \downarrow \implies IT \downarrow$$
+    \end{itemize}
+
+    \framebreak
+    \begin{center}
+        \begin{tikzpicture}[scale=1.25]
+            % Axis
+            \draw[->] (0,0) -- (5,0) node[right] {$\pi$};
+            \draw[->] (0,0) -- (0,4) node[above] {$\pi \cdot \dfrac{M}{P}$};
+          
+            % Arc
+            \draw[thick] (0,0) to[bend left=60] (4.5,0);
+          
+            % Points
+            \filldraw [blue] (0.5,0.55) circle (2pt) node[align=center, below] {\\ $A$}
+                             (2.25,1.15) circle (2pt) node[align=center, above] {$C$ \\ }
+                             (4,0.6) circle (2pt) node[align=center, below] {\\ $B$};
+          
+            % Dotted lines
+            % \draw[dotted] (1,1) -- (1,0);
+            % \draw[dotted] (4,1) -- (4,0);
+          \end{tikzpicture}    
+    \end{center}
+    \begin{itemize}
+        \item $A$ - גמישות קטנה מ1, עלייה באינפלציה תעלה את מס האינפלציה
+        \item $B$ - גמישות שווה ל1, עלייה באינפלציה לא תשנה את מס האינפלציה
+        \item $C$ - גמישות גדולה מ1 , עלייה באינפלציה תוריד את מס האינפלציה
+    \end{itemize}
+   
+
+    
+
+\end{frame}
+
+\section{קשר בין מס אינפלציה למהירות המחזור}
+\begin{frame}
+    \frametitle{קשר בין מס אינפלציה למהירות המחזור}
+    \begin{align*}
+        IT &= \pi \cdot \frac{M}{P} \\
+        MV &= PY \iff \frac{M}{P} = \frac{Y}{V} \implies \\
+        IT &= \pi \cdot \frac{Y}{V} \implies
+    \end{align*}
+
+    \begin{block}{משקל מס האינפלציה בתוצר}
+        \begin{equation*}
+            \frac{IT}{Y} = \frac{\pi}{V}
+        \end{equation*}    
+        \textbf{שימו לב שככל שמהירות המחזור גדולה יותר, כך המשקל של מס האינפלציה מתוך התוצר נמוך יותר}
+    \end{block}
+    
+    
+    
+
+\end{frame}
+
+\section{מס אינפלציה בטווח הקצר}
+\begin{frame}[allowframebreaks]
+    \frametitle{מס אינפלציה בטווח הקצר}
+    \begin{block}{מי מפסיוד ומי מרוויח מציפיות לא מדויקות}
+        הריבית הנומינלית בכל רגע נתון נקבעת כך, 
+        $$i = r^e + \pi^e$$
+        הריבית הריאלית בפועל (בדיעבד) היא,
+        $$r = i - \pi = (r^e + \pi^e) - \pi$$
+        מכאן, שנוצר פער בין הריבית הריאלית בפועל לריבית הריאלית הצפויה
+        $$r - r^e = \pi^e - \pi$$ 
+    \end{block}
+    \framebreak
+    \begin{block}{מי מפסיוד ומי מרוויח מציפיות לא מדויקות}
+    כעת נשים לב מה קורה בשני המקרים,
+    \begin{enumerate}
+        \item אם האינפלציה גבוהה מהאינפלציה הצפויה, הריבית הריאלית נשחקת ביחס לצפויה, הלווה (ממשלה) מרוויחה והמלווה (ציבור) מפסיד
+        $$\pi > \pi^e \implies r < r^e$$
+        \item אם האינפלציה נמוכה מהאינפלציה הצפויה, הריבית הריאלית גבוהה ביחס לצפויה, הלווה (ממשלה) מפסידה המלווה (ציבור) מרוויח 
+        $$\pi < \pi^e \implies r > r^e$$
+    \end{enumerate}
+    \end{block}
+
+\end{frame}
+
+
+\section {אפקט טנזי אוליברה}
+\begin{frame}
+    \frametitle{אפקט טנזי אוליברה}
+    \begin{block}{אפקט טנזי אוליברה}
+        שני כלכלנים אשר בחנו את ההשפעה על האינפלציה על גביית מיסים, החוקרים גילו שהנזק שנוצר משחיקת
+הערך הריאלי של גביית המיסים עולה על התועלת של הממשלה ממס אינפלציה. 
+    \end{block}
+    
+
+\end{frame}
+\end{RTL}
+\end{document}
