@@ -1,0 +1,224 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{המודל הדינאמי}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{המודל הדינאמי}
+    \begin{block}{המודל הדינאמי}
+        המודל הדינאמי הינו מודל אשר מציג שיווי משקל במישור של תוצר ואינפלציה. כפי שניתן להבין מהשם המודל מציג שיווי
+משקל לכל נקודת זמן בשונה ממודל $IS-LM$ אשר מציג לנו נקודות שיווי משקל סטטיות (בנקודת זמן מסוימת אך ללא
+הצגה של תהליך ההתכנסות). את המודל נציג בתור מודל סטטיסטי אשר תלוי בין היתר בזעזועים (משתנים מקריים)
+    \end{block}
+
+    
+
+\end{frame}
+
+\section{צד הביקוש}
+\begin{frame}[allowframebreaks]
+    \frametitle{צד הביקוש}
+    \begin{enumerate}
+        \item משוואת הביקוש למוצרים,
+        $$\underbrace{Y_t}_{\text{תוצר מבוקש}} = \underbrace{\bar{Y_t}}_{\text{תוצר פוטנציאלי}} - \alpha \cdot (\underbrace{r_t}_{\text{ריבית ריאלית}} - \underbrace{\rho}_{\text{ריבית ריאלית טבעית}}) + \underbrace{\varepsilon_t }_{\text{זעזוע ביקוש}}$$
+        \item הקשר בין הריבית הריאלית לבין הריבית הנומינלית (ציפיות נאיביות),
+        $$r_t = i_t - \pi_t$$
+        \item כלל הריבית המוניטרית (כלל טיילור)
+        $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \bar{Y_t}\right)$$
+    \end{enumerate}
+    
+    \framebreak
+    $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \bar{Y_t}\right)$$
+    ניתן לראות כמה דברים :
+    \begin{enumerate}
+        \item ניתן לראות שכאשר האינפלציה שווה ליעד, התוצר שווה לתוצר פוטנציאלי אז הריבית הנומינלית נקבעת ברמה שמבטיחה שהריבית הריאלית הצפויה שווה לריבית הריאלית הטבעית
+        \item אמנם הבנק המרכזי מחליט ישירות על הריבית הנומינלית, אך המטרה הסופית שלו היא להשפיע על הריבית הריאלית ובכך לע הביקושים
+        \item כאשר שיעור האינפלציה עולה ביחידה ושאר הדברים קבועים, הכלל אומר שהריבית צריכה לעלות ב $1 + \theta_\pi$, כלומר יותר מביחידה, זה אומר שהריבית הריאלית תעלה והבנק המרכזי משיג את הקירור הביקושים.
+        \item לפי הכלל, הבנק קובע את הריבית, אך יש לזכור שלמעשה הבנק מבצע התאמות בכמות הכסף דרך עסקאות באג''ח ממשלתי מול הסקטור הפיננסי, כדי להתאים את היצע הכסף לכמות הכסף שהציבור רוצה להחזיק בכל ריבית שהוא קובע
+    \end{enumerate}
+
+    \framebreak
+    כעת נציב את משוואה 2 ו3 במשוואה 1 ונקבל את עקומת $DAD$ (עקומת הביקוש למוצרים דינאמית)
+    \begin{block}{$DAD$}
+        $$
+D A D: Y_t=\bar{Y}_t-\frac{\alpha \cdot \theta_\pi}{1+\alpha \cdot \theta_Y} \cdot\left(\pi_t-\pi_t^*\right)+\frac{1}{1+\alpha \cdot \theta_Y} \cdot \varepsilon_t
+$$
+        \begin{itemize}
+            \item השיפוע של הגרף הוא $-\frac{1 + \alpha \cdot \theta_Y}{\alpha \cdot \theta_\pi}$, בגלל שהצירים הפוכים
+            \item ככל ש $\theta_\pi$ גדול יותר כך $DAD$ שטוחה יותר
+            \item ככל ש $\theta_Y$ גדול יותר כך $DAD$ תלולה יותר
+            \item זעזוע ביקוש חיובי יזיז את $DAD$ ימינהו ולמעלה
+        \end{itemize}
+        
+    \end{block}
+    
+
+\end{frame}
+
+\section{צד היצע}
+\begin{frame}
+    \frametitle{צד ההיצע}
+    \begin{block}{$DAS$}
+    $$DAS : \pi_t = \pi_{t-1} + \varphi \left(Y_t - \bar{Y_t}\right) + v_t $$
+        \begin{itemize}
+            \item כאשר הפירמות מצפות לאינפלציה גבוהה , הן מצפות גם לעלויות יצור גבוהות יותר בתקופה הבאה, לכן הן מעדכנות את המחיר שלהן כלפי מעלה. זה מסביר את הקשר החיובי בין הציפיות לאינפלציה לבין האינפלציה בפועל
+            \item כאשר התוצר גבוה מהתוצר הפוטנציאלי, זה אומר שהאבטלה נמוכה מהאבטלה הטבעית, והעלות השולית של ייצור המוצר עולה, לכן פירמות מעלות מחיר. זה מסביר את הקשר החיובי בין אינפלציה לפער בתוצר
+            \item קיימים זעזועים $v_t$ שמסכמים את הגורמים המשפיעים על האינפלציה חוץ מציפיות ופער התוצר, למשל זעזועים של מחירי נפט או שינוי מבני בשוק
+        \end{itemize}
+    \end{block}
+
+    \begin{alertblock}{שימו לב}
+        $v_t > 0$ הינו זעזוע היצע שלילי
+    \end{alertblock}
+
+\end{frame}
+
+\section{מקרי קיצון}
+\begin{frame}
+    \frametitle{$DAD, \theta_\pi = \infty$}
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw axes
+            \draw[thick,->] (0,0) -- (5,0) node[anchor=north west] {$Y_t$};
+            \draw[thick,->] (0,0) -- (0,5) node[anchor=south east] {$\pi_t$};
+            
+            % Draw dashed line
+            \draw[dashed] (2.5,0) -- (2.5,5);
+            
+            % Draw lines
+            \draw (0,2.5) -- (5,2.5) node[anchor=west] {$DAD_t(\varepsilon_t =0,\pi_t^*)$};
+            \draw (0,0) -- (5,5) node[anchor=south west] {$DAS_t( v_t=0,\pi_t^*)$};
+            
+            % Label points
+            \draw (2.5,2.5) node[circle,fill,inner sep=1pt]{};
+            \node at (2.5,0) [below] {$\overline{Y}$};
+            \node at (0,2.5) [left] {$\pi_t^*$};
+          \end{tikzpicture}          
+    \end{center}
+    במקרה הזה רגישות הכלל
+המוניטארי לסטיית האינפלציה
+היא אינסופית ביחס לרגישות
+לסטיית התוצר. לבנק מחויבות
+מלאה לקיים את יעד האינפלציה
+בכל תקופה בכל מחיר. אם
+המשק חווה זעזוע היצע שלילי,
+הבנק מייד מעלה את הריבית
+באופן חד תוך שמירה על
+האינפלציה ופגיעה בתוצר. כלומר,
+התוצר מאוד תנודתי, האינפלציה
+יציבה.
+    
+
+\end{frame}
+\begin{frame}
+    \frametitle{$DAD, \theta_\pi = 0 $}
+    \begin{center}
+        \begin{tikzpicture}[scale=1,font=\small]
+            % Axes
+            \draw[thick,->] (0,0) -- (0,5) node[above] {$\pi_t$};
+            \draw[thick,->] (0,0) -- (5,0) node[right] {$Y_t$};
+          
+            % DAS line
+            \draw[thick] (0,0) -- (4.5,4.5) node[right] {$DAS_t(v_t=0,\pi^*_t)$};
+          
+            % DAD line
+            \draw[thick] (2.5,0) -- (2.5,4.5) node[above] {$DAD_t(\varepsilon_t=0,\pi^*_t)$};
+          
+            % Dashed lines
+            \draw[dashed] (2.5,0) -- (2.5,2.5);
+            \draw[dashed] (0,2.5) -- (2.5,2.5);
+          
+            % Points
+            \fill (2.5,2.5) circle (2pt);
+          
+            % Labels
+            \node at (2.5,0) [below] {$\overline{Y}$};
+            \node at (0,2.5) [left] {$\pi^*_t$};
+          \end{tikzpicture}
+          
+    \end{center}
+    אם כלל של הבנק המרכזי מתייחס לסטיית התוצר בלבד, עקומת הביקוש הדינאמי תהיה קו אנכי ($Y_t = \bar{Y_t}$) התגובה של הבנק לזעזוע שלילי בהיצע תהיה העלאת הריבית הנומינלית בדיוק בגודל האינפלציה הצפויה, כך שהריבית הריאלית תשמור על רמתה הטבעית $r = \rho$
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$DAD , \theta_t < 0$}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2,font=\small]
+            % Axes
+            \draw[thick,->] (0,0) -- (0,5) node[above] {$\pi_t$};
+            \draw[thick,->] (0,0) -- (5,0) node[right] {$Y_t$};
+          
+            % DAS line
+            \draw[thick] (0,1) -- (4,3) node[above right] {DAS$_t(V_t=0,\pi_t^*)$};
+          
+            % DAD line
+            \draw[thick] (0,0) -- (4,4) node[above right] {DAD$_t(\varepsilon_t=0,\pi_t^*)$};
+          
+            % Dotted lines for Y bar
+            \draw[densely dotted] (2,0) -- (2,5);
+          
+            % Dotted lines for pi star
+            \draw[densely dotted] (0,2) -- (5,2);
+          
+            % Intersection point
+            \fill (2,2) circle (1pt);
+          
+            % Labels for Y bar and pi star
+            \node at (2,0) [below] {$\overline{Y}$};
+            \node at (0,2) [left] {$\pi_t^*$};
+          
+          \end{tikzpicture}
+          
+    \end{center}
+    כאשר האינפלציה עולה באחוז, הבנק המרכזי מעלה את הריבית בפחות מאחוז ולן הריבית הריאלית יורדת והביקושים גדלים (מצב של התבדרות)
+
+    
+
+\end{frame}
+\end{RTL}
+\end{document}
