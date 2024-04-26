@@ -1,0 +1,192 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{עקומת פיליפס}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+
+    
+
+\end{frame}
+
+\section{עקומת פיליפס}
+\begin{frame}[allowframebreaks]
+    \frametitle{עקומת פיליפס}
+    \begin{block}{עקומת פיליפס}
+        עקומת פיליפס מתארת את הקשר השלילי בין אינפלציה לאבטלה
+    \end{block}
+
+    \begin{exampleblock}{התיקון של פרידמן ופלפס}
+        קיים קשר שלילי בין אינפלציה ואבטלה אך רק בט''ק ורק במידה והאינפלציה היא בלתי צפויה
+    \end{exampleblock}
+    \begin{block}{הסבר}
+        בטווח הקצר השכר קשיח ועליית מחירים מקטינה את השכר הריאלי בכך מגדילה את התעסוקה / מקטינה אבטלה
+        $$p \uparrow \implies \frac{w}{p} \downarrow \implies L^d \uparrow \implies u \downarrow$$
+    \end{block}
+    
+    \framebreak
+
+    \begin{block}{ציפיות לאינפלציה לעומת אינפלציה בפועל}
+        ציפיות לאינפלציה משפיעות על השכר הנומינלי, לעומת אינפלציה בפועל שמשפיע על השכר הריאלי,
+        $$\frac{w (1 + \pi^e)}{p (1 + \pi)}$$
+        $$y = y_p \quad u = u_n \quad \left(\dfrac{w}{p}\right)^{\text{חדש}} = \left(\dfrac{w}{p}\right)^{\text{ישן}} \quad \pi = \pi^e$$
+        $$y  > y_p \quad u < u_n \quad \left(\dfrac{w}{p}\right)^{\text{חדש}} < \left(\dfrac{w}{p}\right)^{\text{ישן}} \quad \pi > \pi^e$$
+        $$y < y_p \quad u > u_n \quad \left(\dfrac{w}{p}\right)^{\text{חדש}} > \left(\dfrac{w}{p}\right)^{\text{ישן}} \quad \pi < \pi^e$$
+    \end{block}
+
+    אנחנו מניחים שבטווח ארוך, הציפיות יתאימו את עצמם לאינפלציה ולכן לא יהיו סטיות בשכר ובאבטלה.
+
+\end{frame}
+
+\section{סוגי ציפיות}
+\begin{frame}
+    \frametitle{סוגי ציפיות}
+    \begin{itemize}
+        \item ציפיות רציונליות - הציבור מתוחכם, לוקח בחשבון את כל המידע שיש ויודע את התוצאה הסופית $\pi = \pi ^ e$
+        \item ציפיות נאיביות (מקרה פרטי של אדפטיבי) - מה שהיה זה מה שיהיה $\pi_t = \pi_{t-1}$
+    \end{itemize}
+    
+
+\end{frame}
+\section{עקומת פיליפס ופונקציית ההפסד של המדינאי}
+\begin{frame}[allowframebreaks]
+    \frametitle{עקומת פיליפס ופונקציית ההפסד של המדינאי}
+    $$u = u_n - \alpha(\pi - \pi^e)$$
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                xlabel = \( u_t \),
+                ylabel = {\( \pi_t \)},
+                xmin=0, xmax=10,
+                ymin=0, ymax=10,
+                clip=false,
+                xtick=\empty,
+                ytick=\empty
+            ]
+            
+            % Add the plot line
+            \addplot [thick] coordinates {(0,8) (8,0)};
+            
+            % Dotted lines
+            \draw [dotted] (axis cs:5,3) -- (axis cs:5,0) node[below] {\( u^n \)};
+            \draw [dotted] (axis cs:5,3) -- (axis cs:0,3) node[left] {\( \pi_t^e \)};
+            
+            \end{axis}
+            \end{tikzpicture}
+            
+    \end{center}
+    
+    \framebreak
+    $$L (\pi^+,u^+)$$
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                axis lines = left,
+                xlabel = \( u_t \),
+                ylabel = {\( \pi_t \)},
+                xmin=0, xmax=10,
+                ymin=0, ymax=10,
+                clip=false,
+                xtick=\empty,
+                ytick=\empty
+            ]
+            
+            % Origin point
+            % \node at (axis cs:0,0) {(0,0)};
+            
+            % Add the curved lines, manually adjusted for a closer fit
+            \addplot [blue, thick, domain=0:8.5, samples=100] {8-x^2/9};
+            \addplot [blue, thick, domain=0:6.93, samples=100] {6-x^2/8};
+            \addplot [blue, thick, domain=0:5.3, samples=100] {4-x^2/7};
+            
+            % Labels for the curves
+            \node at (axis cs:8.5,2) {\( L_1 \)};
+            \node at (axis cs:6.5,2) {\( L_2 \)};
+            \node at (axis cs:4.2,2) {\( L_3 \)};
+            
+            \end{axis}
+            \end{tikzpicture}
+            
+    \end{center}
+
+\end{frame}
+\section{גישות של המדינאי}
+\begin{frame}[allowframebreaks]
+    \frametitle{גישות של המדינאי}
+    \begin{block}{גישה של שיקול דעת}
+        המדינאי מנסה להביא למינימום את פונקציית ההפסד שלו (בכל תקופה)
+        $$\min L = f \ (u,\pi)$$
+        $$s.t \quad u = u_n - \alpha(\pi - \pi^e)$$
+    \end{block}
+    \begin{exampleblock}{סדר פעולות לפיתרון}
+        \begin{enumerate}
+            \item מציבים את עקומת פיליפס לפונקציית ההפסד
+            \item גוזרים ומשווים ל0
+            \item מבודדים את האינפלציה
+            \item הצבת האינפלציה  בעקומת פיליפס בשביל למצוא את הפיתרון
+        \end{enumerate}
+    \end{exampleblock}
+    \begin{alertblock}{הערה}
+        במידה והציפיות רציונליות הציבור יודע לחשב את התוצאה הסופית ולכן פשוט נציב $\pi = \pi^e$
+    \end{alertblock}
+    \framebreak
+    \begin{block}{כללים ברורים}
+        המדינאי מכריז מראש כיצד הוא יפעל, 
+        $$\pi = \pi^e \quad u = u_n$$
+        מכאן, סדר הפעולות של הפיתרון הוא, להציב $u = u_n$ ולמצוא את האינפלציה שתביא למינימום של פונקציית ההפסד.
+    \end{block}
+\end{frame}
+
+\section{רתיעה מאינפלציה}
+\begin{frame}
+    \frametitle{רתיעה מאינפלציה}
+    \begin{block}{דוגמה לפונקציית עלות}
+        $$L = u^2 + \gamma \pi^2$$
+        $\gamma$ מבטאת את הרתיעה של המדינאי מאינפלציה
+    \end{block}
+    \begin{alertblock}{מקרי קיצון}
+        \begin{enumerate}
+            \item $\gamma = 0$ המדינאי אדיש לאינפלציה (מפחד רק מאבטלה)
+            \item $\gamma = \infty$ המדינאי רק מפחד מאינפלציה (אדיש מאבטלה)
+        \end{enumerate}
+    \end{alertblock}
+\end{frame}
+\end{RTL}
+\end{document}
