@@ -1,0 +1,167 @@
+% !TEX program = xelatex
+\documentclass[usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\usepackage{graphicx}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+\newcommand{\heart}{\ensuremath\heartsuit}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[]{משק פתוח עם שע''ח קבוע באבטלה}
+\author{מתן לבינטוב}
+\institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+% \date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+    
+
+\end{frame}
+
+
+\section{עקומות}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{עקומות}
+    \begin{block}{עקומת $IS$}
+        $$Y = \frac{1}{1-  (c - im)} \left(A - b\cdot i + n \cdot e\right)$$
+    \end{block}
+    \begin{alertblock}{שימו \heart}
+        המכפיל של משק פתוח הוא קטן יותר מהמכפיל של משק סגור כתוצאה מקיזוז של יבוא
+    \end{alertblock}
+    \begin{block}{עקומת $LM$}
+        $$i = \frac{1}{h}\left(kY + M_0 - \frac{M}{P}^d\right)$$
+    \end{block}
+    \begin{block}{עקומת $BP$}
+        $$Y = \frac{NX_0 + n\cdot E + TR_0 + CF_0 + cf\left(i-i^* - \widehat{E}^e\right)}{im}$$
+    \end{block}
+
+    \framebreak
+    \begin{block}{השיפוע של עקומת $BP$}
+        $$\frac{dY}{di} = \frac{cf}{im}$$
+    \end{block}
+
+    \framebreak
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Define axes
+            \draw[thick,->] (0,0) -- (6,0) node[anchor=north west] {$Y$};
+            \draw[thick,->] (0,0) -- (0,4) node[anchor=south east] {$i$};
+        
+            % Define lines
+            \draw (0.5,1) -- (5.5,3) node[anchor=west] {$BP = 0$ \text{תשלומים במאזן איזון}};
+        
+            % Annotations
+            \node at (2,2.5) {$BP>0$ \text{תשלומים במאזן עודף}};
+            \node at (4.5,1) {$BP>0$ \text{תשלומים במאזן גירעון}};
+
+        
+        \end{tikzpicture}
+        
+    \end{center}
+$$BP(NX_0^{\ +},E^{\ +},TR_0^{\ +},CF_0^{\ +},{i^{\ *}}^{\ +})$$
+\end{frame}
+
+\section{מצבי קיצון ב$BP$}
+\begin{frame}
+    \frametitle{$BP, cf = \infty$}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.3]
+            % Define axes
+            \draw[thick,->] (0,0) -- (6,0) node[anchor=north west] {$Y$};
+            \draw[thick,->] (0,0) -- (0,4) node[anchor=south east] {$i$};
+        
+            % Define lines
+            \draw (0.5,2) -- (5.5,2) node[anchor=west] {$BP = 0$ \text{תשלומים במאזן איזון}};
+        
+            % Annotations
+            \node at (2,3) {$BP>0$ \text{תשלומים במאזן עודף}};
+            \node at (4.5,1) {$BP>0$ \text{תשלומים במאזן גירעון}};
+
+        
+        \end{tikzpicture}
+        
+    \end{center}
+
+    
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{$BP, cf = 0$}
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            % Define axes
+            \draw[thick,->] (0,0) -- (6,0) node[anchor=north west] {$Y$};
+            \draw[thick,->] (0,0) -- (0,4) node[anchor=south east] {$i$};
+        
+            % Define lines
+            \draw (3,0) -- (3,5) node[anchor=west] {$BP = 0$ \text{תשלומים במאזן איזון}};
+        
+            % Annotations
+            \node at (1.5,2.5) {$BP>0$  \text{תשלומים במאזן עודף}};
+            \node at (5,1) {$BP>0$   \text{תשלומים במאזן גירעון}};
+
+        
+        \end{tikzpicture}
+        
+    \end{center}
+
+    
+
+\end{frame}
+
+\section{איך לפתור?}
+\begin{frame}
+    \frametitle{איך לפתור?}
+    \begin{exampleblock}{סדר פעולות לפיתרון}
+        \begin{enumerate}
+            \item בניית שלושת העקומות
+            \item מציאת ש''מ $IS = BP$
+            \item עקומת $LM$ מתאימה את עצמה לנקודת החיתוך בין $IS$ ל $BP$
+        \end{enumerate}
+    \end{exampleblock}
+
+    \begin{block}{משוואת הקסם}
+        $$\D Y = \D C + \D I  + \D G + \D NX$$
+        $$0 = \D NX + \D TR + \D CF$$
+        $$\D NX = \D NX_0 - im \times \D Y + n \times \D e$$
+    \end{block}
+    
+    \begin{alertblock}{שימו \heart}
+        כאשר המשק נוקט במדיניות של שע"ח קבוע לבנק אין שליטה על כמות הכסף אך יש
+לו שליטה על שע"ח נומינלי. המדיניות המוניטרית של הבנק המרכזי נעשית באמצעות
+פיחות/ייסוף ולא באמצעות הרחבה/צמצום מוניטרי/ת.
+    \end{alertblock}
+
+\end{frame}
+\end{RTL}
+\end{document}
