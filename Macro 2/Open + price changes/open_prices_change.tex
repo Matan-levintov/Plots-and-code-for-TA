@@ -1,10 +1,11 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[dvipsnames]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
 \usetheme{Warsaw}
 \setbeamertemplate{headline}{} % This line removes the headline template
 \usepackage{xcolor}
+\usepackage{hebfont} % Make sure to use the appropriate package for Hebrew fonts
 \beamertemplatenavigationsymbolsempty
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -280,6 +281,59 @@
             \node at (8.5, 0) {$LM \uparrow$};
         \end{tikzpicture}
     \end{block}
+
+
+    \begin{figure}[scale=2]
+        \centering
+        \includegraphics[width=\textwidth]{SCR-20240703-layy.png}
+    \end{figure}
+
+\end{frame}
+
+\section{זעזועים פנימיים וחיצוניים}
+\begin{frame}
+    \frametitle{זעזועים פנימיים וחיצוניים}
+    \begin{itemize}
+        \item שע''ח נייד מגן על המשק מזעזועים חיצוניים,  $$P^{\ *}\uparrow \implies E \downarrow \implies \frac{\overline{EP^{\ *}}}{P}$$ \\   מגן על פני אינפלציה בחו''ל
+        \item שע''ח נייד לא מגן בפני זעזועים פנימיים $$M_0 \downarrow \implies LM \uparrow \implies P \uparrow \implies LM\downarrow$$
+        \item שע''ח קבוע לא מגן על המשחק בפני זעזועים חיצוניים, הוא "מייבא אינפלציה מחו''ל" $$P^{\ *}\uparrow \implies P \uparrow \implies \frac{\overline{EP^{\ *}}}{P}$$
+        \item שע''ח קבוע מגן מזעזועים פנימיים $$M_0 \downarrow \implies LM \uparrow \implies M^s \downarrow \implies LM \downarrow$$
+    \end{itemize}
+    
+
+\end{frame}
+
+
+\section{הטרילמה}
+\begin{frame}
+    \frametitle{הטרילמה}
+    \begin{tikzpicture}
+        % Nodes
+        \node[rectangle, draw, fill=yellow, text centered, text width=3cm] at (0, 3) {\RTL{תנועות הון חופשיות}};
+        \node[rectangle, draw, fill=yellow, text centered, text width=3cm] at (-4, -3) {\RTL{שליטה ב-M וריבית}};
+        \node[rectangle, draw, fill=yellow, text centered, text width=3cm] at (4, -3) {\RTL{שליטה בשע"ח}};
+    
+        % Arrows
+        \draw[<->, thick, blue] (-0.5, 2.5) -- (-3.5, -2.5) node[midway, above, sloped] {\RTL{חופשיות הון תנועות עם נייד שע''ח}};
+        \draw[<->, thick, blue] (-3.5, -3.5) -- (3.5, -3.5) node[midway, below] {\RTL{עיקורים הון, לתנועות סגור משק}};
+        \draw[<->, thick, blue] (3.5, -2.5) -- (0.5, 2.5) node[midway, above, sloped] {\RTL{חופשיות הון תנועות עם קבוע שע''ח}};
+    \end{tikzpicture}
+    
+
+\end{frame}
+
+\section{איחוד מטבע}
+\begin{frame}
+    \frametitle{איחוד מטבע}
+    \begin{block}{איחוד מטבע}
+        
+    מספר מדינות בוחרות להשתמש באותו מטבע עם בנק מרכזי אחד שמנפיק את אותו המטבע עבור כל אותן המדינות. המטרה של איחוד זה היא להקל על מעבר של סחורות ולאפשר ניידות של הון ועובדים בין אותן מדינות. בדרך זו נחתכים שערי המרה, פחות בירוקרטיה וקיימת וודאות מלאה לגבי שער החליפין בין אותן מדינות.
+
+\textbf{מתי איחוד מטבע מתאים?}
+
+איחוד מטבע מתאים למדינות אשר קיימים ביניהן מתאם גבוה במחזוריות המאזן הכלכלי. איחוד מטבע כופה על כל אותן המדינות מדיניות מוניטרית אחת אחידה ומדיניות פיסקלית אחידה (ממשלה אחת ומטבע אחד) ולכן באיחוד האירופי המדיניות הפיסקלית איננה אחידה אך המדיניות המוניטרית אחידה (ממשלות רבות ומטבע אחד)
+\end{block}
+    
 
 \end{frame}
 \end{RTL}
