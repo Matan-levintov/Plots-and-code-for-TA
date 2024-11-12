@@ -9,6 +9,45 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{float}  % Import the float package, needed to be loaded before bidi, used for positioning figures, the extreme version of [h]. Use [H] 
+\usepackage{xcolor} % Used to define colors
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+
+
+
+\geometry{
+  a4paper,
+  left=25mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm
+}
+
+% Define colors
+\definecolor{myblue}{RGB}{0, 102, 204}
+\definecolor{myred}{RGB}{204, 0, 0}
+\definecolor{mygreen}{RGB}{0, 153, 76}
+\definecolor{lightgray}{gray}{0.95}
+\definecolor{mycolor1}{HTML}{ffebba}
+% Hyperlink settings
+\hypersetup{
+  colorlinks=true,
+  linkcolor=myblue,
+  urlcolor=myred,
+  citecolor=mygreen,
+}
+% Custom section headings
+\titleformat{\section}
+  {\color{myblue}\normalfont\Large\bfseries}
+  {\color{myblue}\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\color{myblue}\normalfont\large\bfseries}
+  {\color{myblue}\thesubsection}{1em}{}
+
+
+
 % ============================================================ %
 % HEBREW support via polyglossia %
 % ============================================================ %
@@ -16,7 +55,7 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{english}
 \setotherlanguage{hebrew}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
@@ -168,13 +207,13 @@ $$\frac{5.192 - 4.605}{4 - 0} = 14.675\%$$
     \caption{לוג מחיר סגירה של המדד}
 \end{figure}
 בקורס נעסוק ביחסים בין גדלים שונים:
-\begin{itemize}
+\begin{enumerate}
     \item $\frac{Y}{N}$ תוצר לנפש
     \item $\frac{K}{Y}$ יחס הון תוצר
     \item $\frac{D}{Y}$ יחס חוב תוצר
     \item $\frac{Y}{L}$ תוצר לעובד
     \item $\frac{K}{L}$ יחס הון לעובד
-\end{itemize}
+\end{enumerate}
 גם את היחסים הללו נרצה לחקור ולראות כיצד הם משתנים לאורך זמן. לכן גם כאן נשתמש אפשר להתשמש או בחישוב בדיד או בחישוב רציף.
 \\
 לדוגמה ניקח את היחס תוצר לנפש $\dfrac{Y}{N}$ \\
@@ -183,13 +222,11 @@ $$\frac{5.192 - 4.605}{4 - 0} = 14.675\%$$
 \widehat{\left(\dfrac{{Y}}{N}\right)} =\dfrac{\dfrac{Y_t}{N_t}-\dfrac{Y_{t-1}}{N_{t-1}}}{\dfrac{Y_{t-1}}{N_{t-1}}}=\dfrac{\dfrac{Y_{t-1}(1+\widehat{Y})}{N_{t-1}(1+\widehat{N})}-\dfrac{Y_{t-1}}{N_{t-1}}}{\dfrac{Y_{t-1}}{N_{t-1}}}=\dfrac{1+\widehat{Y}}{1+\widehat{N}}-1 \\
 = \dfrac{1+\widehat{Y}-1-\widehat{N}}{1+\widehat{N}}=\dfrac{\widehat{Y}-\widehat{N}}{1+\widehat{N}}
 \end{multline*}
-
 אם נחלק את התקופה הזאת לעשירית תקופה, הצמיחה תהיה עשירית מהצמיחה והגידול באוכלוסיה גם יהיה עשירית מהגידול
 \begin{equation*}
     \widehat{\left(\frac{Y}{N}\right)}
     = \dfrac{0.1\widehat Y - 0.1 \widehat N} {1 + 0.1\widehat N}
 \end{equation*}
-
 במידה ונרצה לחזור לתקופה המקורית, אפשר להכפיל פשוט את הגודל שקיבלנו פי 10
 \begin{equation*}
     \widehat{\left(\frac{Y}{N}\right)}
@@ -303,7 +340,7 @@ $Deflator$ בדיוק כמו שהוא נשמע, מטרתו למחוק את הש�
 \end{equation*}
 תזכרו ש $\dot Y = \frac{dy}{dt}$ ולכן לפי הגדרה אפשר להפעיל אותה לוגיקה לביטוי $\frac{Y}{N}$  רק לא לשכוח שזה נגזרת של מנה היות וגם מונה וגם המכנה הם פונקציה של המשתנה שאנחנו גוזרים לפיו $t$
 \begin{equation*}
-\widehat{\left(\frac{Y}{N}\right)}=\dfrac{\left(\dfrac{\dot{Y}}{N}\right)}{\dfrac{Y}{N}}=\dfrac{\dfrac{\dot{Y} \cdot N-Y \cdot \dot{N}}{N^2}}{\dfrac{Y}{{N}}}=\dfrac{\dfrac{\dot{Y} \cdot N-Y \cdot \dot{N}}{N}}{Y}=\dfrac{\dot{Y} \cdot \cancel{N}}{\cancel{N} \cdot Y}-\dfrac{\cancel{Y} \cdot \dot{N}}{N \cdot \cancel{Y}}=\dfrac{\dot{Y}}{Y}-\dfrac{\dot{N}}{N}=\widehat{Y}-\widehat{N}
+\widehat{\left(\frac{Y}{N}\right)}=\dfrac{\dot{\left(\dfrac{Y}{N}\right)}}{\dfrac{Y}{N}}=\dfrac{\dfrac{\dot{Y} \cdot N-Y \cdot \dot{N}}{N^2}}{\dfrac{Y}{{N}}}=\dfrac{\dfrac{\dot{Y} \cdot N-Y \cdot \dot{N}}{N}}{Y}=\dfrac{\dot{Y} \cdot \cancel{N}}{\cancel{N} \cdot Y}-\dfrac{\cancel{Y} \cdot \dot{N}}{N \cdot \cancel{Y}}=\dfrac{\dot{Y}}{Y}-\dfrac{\dot{N}}{N}=\widehat{Y}-\widehat{N}
 \end{equation*}
 $\qed$
 \section{זרם ומלאי}
