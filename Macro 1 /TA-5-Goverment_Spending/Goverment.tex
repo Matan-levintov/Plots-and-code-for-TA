@@ -1,5 +1,5 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[usenames,dvipsnames,10pt]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
 \usetheme{Copenhagen}
@@ -22,12 +22,12 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
-\title[]{{מאקרו א' - תרגול 5 - צריכה ממשלתית}}
-\author{\texthebrew{ מתן לבינטוב}}
+\title[צריכה ממשלתית]{{מאקרו א' - תרגול 5 - צריכה ממשלתית}}
+\author{\texthebrew{מתן לבינטוב}}
 \institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
 \date{}
 \usepackage{bidi}
@@ -44,10 +44,10 @@
     ראשית נציג איך בנוי התקציב הממשלתי:
     \begin{table}
     \centering
-    \begin{tabular}{|c|c|} \hline 
+    \begin{tabular}{ |c|c| } \hline 
          הכנסות& הוצאות\\ \hline 
          סך הכנסות ממיסים ברוטו  - $T_t$& צריכה ציבורית  - $G_t$\\ \hline 
-         בניכוי : \\ תשלומי העברה $TR$ \\ ריבית על חוב נצבר $rD_{t-1}$&השקעה ציבורית $I_t^G$ \\ \hline
+         בניכוי : \\ תשלומי העברה $TR$ \\ ריבית על חוב נצבר $rD_{t-1}$ &השקעה ציבורית $I_t^G$ \\ \hline
     \end{tabular}
     \end{table}
 גרעון :
@@ -101,7 +101,9 @@
 \begin{frame}[allowframebreaks]
     \frametitle{שקילות רקרדו}
     הרחבה למודל הצריכה הדו תקופתית שלמדנו בשיעורים הקודמים, כעת ההכנסה של הפרט תלויה
-בגביית המיסים בזמן 1 ובזמן .2 הפרטים במודל שלנו הם פרטים רציונליים וחכמים אשר מבינים
+בגביית המיסים בזמן 1 ובזמן 2.
+
+הפרטים במודל שלנו הם פרטים רציונליים וחכמים אשר מבינים
 שאם הממשלה מעלה את הצריכה שלה היום, היא תעלה מיסים או היום או בתקופה הבאה. לכן
 המסקנה היא שזה לא משנה אם הממשלה תממן את הגדלת הצריכה באמצעות מיסים או לקיחת
 חוב. אנחנו נראה כי כאשר מתקיימות מגבלות בשוק ההון לא נגיע בהכרח לאותן מסקנות.
