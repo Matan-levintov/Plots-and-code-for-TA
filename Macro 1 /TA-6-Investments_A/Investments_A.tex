@@ -1,8 +1,8 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[usenames,dvipsnames, 10pt]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
-\usetheme{Copenhagen}
+\usetheme{Warsaw}
 \usepackage{xcolor}
 \beamertemplatenavigationsymbolsempty
 \usepackage{tikz}
@@ -22,7 +22,7 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
@@ -55,13 +55,14 @@
     
 
 \end{frame}
-\section{שוק המניות ותאוריית ה q של טובין}
+\section{שוק המניות ותאוריית ה $q$ של טובין}
 \begin{frame}[allowframebreaks]
     \frametitle{שוק המניות ועלות הההון}
     פירמות יכולות לגייס הון על ידי הנפקת מניות ומכירת בשוק ההון, בשוק ההון המחיר של המניות דינאמי וכל הזמן משתנה,
-    \begin{equation*}
-        P_{\text{stock}} \uparrow \implies \text{הפירמה מגייסת אותה כמות של כסף בפחות מניות} \implies r \downarrow \implies I \uparrow
-    \end{equation*}
+    \begin{align*}
+        P_{\text{stock}} \uparrow \implies &\text{הפירמה מגייסת אותה כמות של כסף בפחות מניות} \implies r \downarrow  \\
+        & \qquad \qquad \qquad \implies I \uparrow
+    \end{align*}
     בהחלטה על השקעה הפירמה מתייחסת ל2 דברים : 
     \begin{itemize}
         \item ערך המניות שהשוק נותן לחברה $\left(P \times N \right)$ זה פשוט מחיר המניה כפול מספר המניות
@@ -126,9 +127,9 @@
         
     \end{alertblock}
    היזם תמיד יודע את $X$ והמשקיע או משקיעים מעריכים את הערך הנכס לפי תוחלת
-   $$\overline X = P \cdot X_H + \left(1-P\right) X_L $$
+   $$\mathbb{E}(X ) = \overline{X} = P \cdot X_H + \left(1-P\right) X_L $$
    ולכן החלק שמשקיעים ידרשו יגדל
-    $$\bar{\alpha^*} \geq \frac{I}{X+V}$$
+    $$\overline{\alpha^*} \geq \frac{I}{X+V}$$
 
     \begin{alertblock}{תזכורת}
         $X$ הינו הערך האמיתי של הנכס, ו $\overline X$ הינו הערך המשוער שהמשקיעים נותנים לנכס
