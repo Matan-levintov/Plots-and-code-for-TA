@@ -1,13 +1,14 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[usenames,dvipsnames,10pt]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
-\usetheme{Copenhagen}
+\usetheme{Warsaw}
 \setbeamertemplate{headline}{} % This line removes the headline template
 \usepackage{xcolor}
 \beamertemplatenavigationsymbolsempty
 \usepackage{tikz}
 \usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \renewcommand{\qed}{\hfill\blacksquare}
 \newcommand{\D}[1]{\Delta #1}
 \renewcommand{\a}{\alpha}
@@ -23,12 +24,12 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
-\title[]{{מאקרו א' - תרגול  7 - כלכלה בטווח הארוך}}
-\author{\texthebrew{ מתן לבינטוב}}
+\title[כלכלה בטווח הארוך]{{מאקרו א' - כלכלה בטווח הארוך}}
+\author{מתן לבינטוב}
 \institute[{{ אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
 \date{}
 \usepackage{bidi}
@@ -58,7 +59,7 @@
     \end{block}
     \begin{block}{הנחות}
         \begin{itemize}
-            \item בטווח ארוך גורמי היצור קבועים ולכן התוצר גם קבוע - $\bar Y = \bar A F(\bar K, \bar L)$
+            \item בטווח ארוך גורמי היצור קבועים ולכן התוצר גם קבוע - $\overline Y = \overline A F(\overline K, \overline L)$
             \item תפוקה שולית חיובית - $F_K = MPK > 0 , F_L = MPL > 0$
             \item תפוקה שולית פוחתת - $F_{KK} < 0 , F_{LL} < 0$
             \item תק''ל - תשואה קבועה לגודל
@@ -217,7 +218,7 @@
     \begin{frame}[allowframebreaks]
         \frametitle{התחלקות התוצר בשימושים}
         \begin{block}{לפי דוח מקו''ש}
-        $$\bar Y = C(\bar Y - T) + G_0 + I(r)$$  
+        $$\overline Y = C(\overline Y - T) + G_0 + I(r)$$  
         אפשר לראות שהמשתנה האנדוגני היחיד הוא הריבית, שבעזרתו הביקוש מתאים את עצמו לתוצר.      
         \end{block}
         הבהרה : הסוגריים זה לא כפל, הכוונה בפונקציה של מה, לדוגמה צריכה היא פונקציה של מיסים ותוצר.
