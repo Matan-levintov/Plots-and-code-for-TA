@@ -1,5 +1,5 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[10pt,usenames,dvipsnames]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
 \usetheme{Warsaw}
@@ -23,7 +23,7 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 \newcommand{\heart}{\ensuremath\heartsuit}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
@@ -63,15 +63,15 @@
     \frametitle{צד הביקוש}
     \begin{enumerate}
         \item משוואת הביקוש למוצרים,
-        $$\underbrace{Y_t}_{\text{תוצר מבוקש}} = \underbrace{\bar{Y_t}}_{\text{תוצר פוטנציאלי}} - \alpha \cdot (\underbrace{r_t}_{\text{ריבית ריאלית}} - \underbrace{\rho}_{\text{ריבית ריאלית טבעית}}) + \underbrace{\varepsilon_t }_{\text{זעזוע ביקוש}}$$
+        $$\underbrace{Y_t}_{\text{תוצר מבוקש}} = \underbrace{\overline{Y_t}}_{\text{תוצר פוטנציאלי}} - \alpha \cdot (\underbrace{r_t}_{\text{ריבית ריאלית}} - \underbrace{\rho}_{\text{ריבית ריאלית טבעית}}) + \underbrace{\varepsilon_t }_{\text{זעזוע ביקוש}}$$
         \item הקשר בין הריבית הריאלית לבין הריבית הנומינלית (ציפיות נאיביות),
         $$r_t = i_t - \pi_t$$
         \item כלל הריבית המוניטרית (כלל טיילור)
-        $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \bar{Y_t}\right)$$
+        $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \overline{Y_t}\right)$$
     \end{enumerate}
     
     \framebreak
-    $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \bar{Y_t}\right)$$
+    $$i_t = \pi_t + \rho +\theta_\pi \left(\pi_t - \pi^*_t\right) + \theta_Y \left(Y_t - \overline{Y_t}\right)$$
     ניתן לראות כמה דברים :
     \begin{enumerate}
         \item ניתן לראות שכאשר האינפלציה שווה ליעד, התוצר שווה לתוצר פוטנציאלי אז הריבית הנומינלית נקבעת ברמה שמבטיחה שהריבית הריאלית הצפויה שווה לריבית הריאלית הטבעית
@@ -84,7 +84,7 @@
     כעת נציב את משוואה 2 ו3 במשוואה 1 ונקבל את עקומת $DAD$ (עקומת הביקוש למוצרים דינאמית)
     \begin{block}{$DAD$}
         $$
-D A D: Y_t=\bar{Y}_t-\frac{\alpha \cdot \theta_\pi}{1+\alpha \cdot \theta_Y} \cdot\left(\pi_t-\pi_t^*\right)+\frac{1}{1+\alpha \cdot \theta_Y} \cdot \varepsilon_t
+D A D: Y_t=\overline{Y}_t-\frac{\alpha \cdot \theta_\pi}{1+\alpha \cdot \theta_Y} \cdot\left(\pi_t-\pi_t^*\right)+\frac{1}{1+\alpha \cdot \theta_Y} \cdot \varepsilon_t
 $$
         \begin{itemize}
             \item השיפוע של הגרף הוא $-\frac{1 + \alpha \cdot \theta_Y}{\alpha \cdot \theta_\pi}$, בגלל שהצירים הפוכים
@@ -102,7 +102,7 @@ $$
 \begin{frame}
     \frametitle{צד ההיצע}
     \begin{block}{$DAS$}
-    $$DAS : \pi_t = \pi_{t-1} + \varphi \left(Y_t - \bar{Y_t}\right) + v_t $$
+    $$DAS : \pi_t = \pi_{t-1} + \varphi \left(Y_t - \overline{Y_t}\right) + v_t $$
         \begin{itemize}
             \item כאשר הפירמות מצפות לאינפלציה גבוהה , הן מצפות גם לעלויות יצור גבוהות יותר בתקופה הבאה, לכן הן מעדכנות את המחיר שלהן כלפי מעלה. זה מסביר את הקשר החיובי בין הציפיות לאינפלציה לבין האינפלציה בפועל
             \item כאשר התוצר גבוה מהתוצר הפוטנציאלי, זה אומר שהאבטלה נמוכה מהאבטלה הטבעית, והעלות השולית של ייצור המוצר עולה, לכן פירמות מעלות מחיר. זה מסביר את הקשר החיובי בין אינפלציה לפער בתוצר
@@ -118,7 +118,7 @@ $$
 
 \section{מקרי קיצון}
 \begin{frame}
-    \frametitle{$DAD, \theta_\pi = \infty$}
+    \frametitle{$DAD, \theta_\pi \to \infty$}
     \begin{center}
         \begin{tikzpicture}
             % Draw axes
@@ -180,7 +180,7 @@ $$
           \end{tikzpicture}
           
     \end{center}
-    אם כלל של הבנק המרכזי מתייחס לסטיית התוצר בלבד, עקומת הביקוש הדינאמי תהיה קו אנכי ($Y_t = \bar{Y_t}$) התגובה של הבנק לזעזוע שלילי בהיצע תהיה העלאת הריבית הנומינלית בדיוק בגודל האינפלציה הצפויה, כך שהריבית הריאלית תשמור על רמתה הטבעית $r = \rho$
+    אם כלל של הבנק המרכזי מתייחס לסטיית התוצר בלבד, עקומת הביקוש הדינאמי תהיה קו אנכי ($Y_t = \overline{Y_t}$) התגובה של הבנק לזעזוע שלילי בהיצע תהיה העלאת הריבית הנומינלית בדיוק בגודל האינפלציה הצפויה, כך שהריבית הריאלית תשמור על רמתה הטבעית $r = \rho$
 
     
 
@@ -200,7 +200,7 @@ $$
             % DAD line
             \draw[thick] (0,0) -- (4,4) node[above right] {$DAD_t(\varepsilon_t=0,\pi_t^*)$};
           
-            % Dotted lines for Y bar
+            % Dotted lines for Y overline
             \draw[densely dotted] (2,0) -- (2,5);
           
             % Dotted lines for pi star
@@ -209,7 +209,7 @@ $$
             % Intersection point
             \fill (2,2) circle (1pt);
           
-            % Labels for Y bar and pi star
+            % Labels for Y overline and pi star
             \node at (2,0) [below] {$\overline{Y}$};
             \node at (0,2) [left] {$\pi_t^*$};
           

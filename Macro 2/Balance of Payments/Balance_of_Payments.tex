@@ -1,0 +1,193 @@
+% !TEX program = xelatex
+\documentclass[10pt,usenames,dvipsnames]{beamer}
+\usefonttheme{serif}
+\usefonttheme{structuresmallcapsserif}
+\usetheme{Warsaw}
+\setbeamertemplate{headline}{} % This line removes the headline template
+\usepackage{xcolor}
+\beamertemplatenavigationsymbolsempty
+\usepackage{tikz}
+\usepackage{pgfplots}
+\renewcommand{\qed}{\hfill\blacksquare}
+\newcommand{\D}[1]{\Delta #1}
+\renewcommand{\a}{\alpha}
+\usepackage{float}
+\setbeamertemplate{frametitle continuation}{%
+    \ifnum\insertcontinuationcount>999999999 % this command tells the program when to start counting and also the count will be in numbers and not in roman letters
+    \insertcontinuationcount
+    \fi}
+% ============================================================ %
+% HEBREW support via polyglossia %
+% ============================================================ %
+\usepackage{polyglossia}
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
+\newcommand{\heart}{\ensuremath\heartsuit}
+% Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
+% Use \texthebrew{ } and \textenglish{ } for short texts.
+% ============================================================ %
+\title[מאזן התשלומים]{תרגול 7 - מאזן התשלומים}
+\author{מתן לבינטוב}
+\institute[{{אב"ג}}]{{ אוניברסיטת בן גוריון בנגב}}
+\date{}
+\usepackage{bidi}
+\begin{document}
+\begin{RTL}
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{נושאים}
+    \tableofcontents
+\end{frame}
+
+\section{מאזן התשלומים}
+\begin{frame}[allowframebreaks]
+    \frametitle{מאזן התשלומים}
+    \begin{block}{סימונים}
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}
+                \item $E$ - שער חליפין נומינלי
+                \item $P$ - רמת מחירים מקומית
+                \item $P^{\, \ast}$ - רמת מחירים בחו"ל
+                \item $\frac{E P^{\, \ast}}{P}$ - שער חליפין ריאלי
+                \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}
+                \item $i$ - ריבית נומינלית מקומית
+                \item $i^{\, \ast}$ - ריבית נומינלית בחו"ל
+                \item $X$ - ייצוא
+                \item $IM$ - ייבוא
+                \item $CF$ - תנועות הון לתוך הארץ
+                \end{itemize}
+        \end{column}
+    \end{columns}
+    \end{block}
+
+    \framebreak
+
+    \begin{block}{מאזן התשלומים}
+        מאזן התשלומים הוא מסמך אשר מסכם את הכניסה והיציאה של מט''ח מהמשק.
+
+        בשונה ממאזן רגיל, במקום לדון על משתנים מצטברים (מלאי) 
+        הוא מתאר משתני זרם.
+
+        מאזן התשלומים בנוי משני חשבונות עיקריים:
+        \begin{itemize}
+            \item חשבון שוטף - $CA$
+            \item חשבון ההון - $CF$
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\section{חשבון שוטף}
+\begin{frame}[allowframebreaks]
+    \frametitle{חשבון שוטף}
+\begin{block}{חשבון שוטף}
+        מכיל בתוכו  את המאזן המסחרי $NX$ ואת העברות החד צדדיות $TR$.
+        $$
+        CA = NX + TR
+        $$
+\end{block}
+
+\begin{block}{מאזן מסחרי}
+    עודף הייצוא $NX = X - IM$ מסכם את ההכנסות מהייצוא וההוצאות לייבוא.
+    עודף הייצוא תלוי בתוצר ובשע''ח ריאלי באופן הבא:
+    \begin{align*}
+        X &= X_0 + X_1 \cdot \frac{E P^{\, \ast}}{P} \\
+        IM &= IM_0 - IM_1 \cdot \frac{E P^{\, \ast}}{P} + IM_2 \cdot Y \\
+        NX &= (X_0 - IM_0) + (X_1 - IM_1) \cdot \frac{E P^{\, \ast}}{P} - IM_2  \cdot Y \\
+           &= NX_0 + NX_1 \cdot \frac{E P^{\, \ast}}{P} - IM_2 \cdot Y
+    \end{align*}
+\end{block}
+
+\framebreak
+
+\begin{block}{העברות חד צדדיות}
+    העברות של מט''ח שאין נובעות מעסקאות או מניעים כלכליים, לדוגמה למוסדות ללא כוונות רווח
+    ולכן הוא גודל אקסוגני.
+    $$
+    TR = TR_0
+    $$
+\end{block}
+\end{frame}
+
+
+\section{תנועות הון}
+\begin{frame}[allowframebreaks]
+    \frametitle{תנועות הון}
+    העברות מט''ח אשר נובעות משיקולים פיננסים. השקעה במניות
+    השקעה באגרות חוב ואשראי.
+    
+    תנועות הון תלויות בפער בין הריבית הנומינלית המקומית לריבית הנומילית העולמית, עם התחשבות בציפיות לפיחות.
+
+    \begin{block}{משוואת תנועות הון}
+        $$
+        CF = CF_0 + CF_1 \cdot \left(i - \left(i^{\, \ast} + \widehat{E}\right)\right)
+        $$
+        כאשר הריבית המקומית גבוהה מהריבית העולמית, השקעות במשק הן אטרקטיביות יותר ולכן 
+        יש תנועות הון לתוך המשק.
+        
+        התהנליך עובד גם הפוך, כאשר הריבית בחו''ל גבוהה יותר, אז כדאי יותר להשקיע בחו''ל ולכן יש תנועות הון מחוץ למשק.
+
+    \end{block}
+    \framebreak
+    \begin{alertblock}{ציפיות לפיחות \heart}
+        ציפיות לפיחות מורידות את הכדאיות להשקעה בארץ
+        משום שפיחות מייקר את המעבר בין שקלים לדולרים ולכן מוריד את התשואה של משקיעים זרים.
+    \end{alertblock}
+    
+    \begin{exampleblock}{דוגמה מספרית}
+    \begin{itemize}
+        \item נניח משקיע זר מפקיד \(1000\,\$\) בריבית שנתית \(i=5\%\), \(E_0=3\,\$\).
+        \item ללא פיחות: \(1000\times1.05\times3=3150\,\mathrm{ILS}\), החזר \(\frac{3150}{3}=1050\,\$\), רווח \(+50\,\$\) (\(+5\%\)).
+        \item אם צפויה פיחות \(10\%\): \(E_1=3\times1.1=3.3\,\$\), החזר \(\frac{3150}{3.3}\approx954.55\,\$\), הפסד \(-45.45\,\$\) (\(-4.545\%\)).
+        \item מסקנה: פיחות מטבע מקטין משמעותית את ההכנסה ממשקיע זר.
+    \end{itemize}
+    \end{exampleblock}
+    \end{frame}
+
+\section{חוב חיצוני}
+\begin{frame}[allowframebreaks]
+    \frametitle{חוב חיצוני}
+    \begin{block}{השקעות}
+        \begin{itemize}
+            \item השקעה במכשירי הון - קנייה של מניות או אחוזים בעסק מסוים אשר הופכים את הרוכש לשותף בעסק.
+            מה שמשותף במכשירים אלו היא שבדרך כלל לא קיימת התחייבות להחזר של הקרן או תשלומי ריבית מוגדרים מראש.
+            \item השקעה במכשירי חוב - קנייה של מכשירי חוב כגון אגרות חוב או מתן הלוואה אשר מקנים לרוכש זכות לקבל בחזרה את הקרן השקעה שלו ובנוסף תשלומי ריבית.
+            \end{itemize}
+    \end{block}
+    \begin{alertblock}{שימו \heart}
+        כאשר נמדוד את החוב החיצוני נתעלם ממכשירי הון ונתייחס למכשירי חוב בלבד.
+    \end{alertblock}
+
+    \framebreak
+
+    \begin{block}{חוב חיצוני ברוטו}
+        כל התחייבויות של המשק המקומי למשקים חיצוניים (מלאי).\\
+
+        שינוי בחוב חיצוני ברוטו הינו $CF$ (משתנה זרם), למה?
+        
+    \end{block}
+
+    \begin{block}{חוב חיצוני נטו}
+        כל התחייבויות של המשק המקומי למשקים חיצונים בניכוי כל התחייבות של המשקים החיצוננים למשק המקומי (נכס מנקודת המבט של המשק המקומי) (משתנה מלאי).
+
+
+        שינוי בחוב החיצוני נטו $-CA$ (משתנה זרם), למה?
+    \end{block}
+
+    נשים לב שהפער בין השינוי בין החוב החיצוני ברוטו לשינוי בחוב החיצוני נטו הוא בדיוק השינוי ביתרות המט''ח.
+    $$
+    BP = CF + CA
+    $$
+\end{frame}
+
+
+\end{RTL}
+\end{document}
