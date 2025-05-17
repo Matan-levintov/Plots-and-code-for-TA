@@ -1,8 +1,20 @@
 % !TEX program = xelatex
-\documentclass[usenames,dvipsnames]{beamer}
+\documentclass[10pt,usenames,dvipsnames]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
-\usetheme{Warsaw}
+\usetheme{Madrid}
+\usecolortheme{orchid}
+\definecolor{royalblue}{RGB}{65,105,225}
+\setbeamercolor{structure}{fg=royalblue}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=white, bg=royalblue!80!black}
+\setbeamercolor{section title}{fg=royalblue!80!black}
+\setbeamercolor{subsection title}{fg=royalblue!80!black}
+\setbeamercolor{item}{fg=royalblue}
+\setbeamercolor{block title}{bg=royalblue!25, fg=royalblue!90!black}
+\setbeamercolor{block body}{bg=royalblue!10}
+\setbeamercolor{alerted text}{fg=red!80!black}
+\setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{headline}{} % This line removes the headline template
 \usepackage{xcolor}
 \beamertemplatenavigationsymbolsempty
@@ -23,7 +35,7 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
