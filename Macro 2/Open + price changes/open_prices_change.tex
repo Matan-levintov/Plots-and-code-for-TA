@@ -1,8 +1,20 @@
 % !TEX program = xelatex
-\documentclass[dvipsnames]{beamer}
+\documentclass[10pt,usenames,dvipsnames]{beamer}
 \usefonttheme{serif}
 \usefonttheme{structuresmallcapsserif}
-\usetheme{Warsaw}
+\usetheme{Madrid}
+\usecolortheme{orchid}
+\definecolor{royalblue}{RGB}{65,105,225}
+\setbeamercolor{structure}{fg=royalblue}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{frametitle}{fg=white, bg=royalblue!80!black}
+\setbeamercolor{section title}{fg=royalblue!80!black}
+\setbeamercolor{subsection title}{fg=royalblue!80!black}
+\setbeamercolor{item}{fg=royalblue}
+\setbeamercolor{block title}{bg=royalblue!25, fg=royalblue!90!black}
+\setbeamercolor{block body}{bg=royalblue!10}
+\setbeamercolor{alerted text}{fg=red!80!black}
+\setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{headline}{} % This line removes the headline template
 \usepackage{xcolor}
 \usepackage{hebfont} % Make sure to use the appropriate package for Hebrew fonts
@@ -28,7 +40,7 @@
 \defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase}
 \setdefaultlanguage{hebrew}
 \setotherlanguage{english}
-\newfontfamily\hebrewfont[Script=Hebrew]{Arial}
+\newfontfamily\hebrewfont[Script=Hebrew]{David CLM}
 % Use \begin{hebrew} block of text \end{hebrew} for paragraphs.
 % Use \texthebrew{ } and \textenglish{ } for short texts.
 % ============================================================ %
@@ -54,8 +66,8 @@
     \frametitle{שלושי טווחי זמן}
     אנו נבחין בין 3 טווחי זמן
     \begin{itemize}
-        \item טווח מיידי - $\bar{P} , \bar{W}$
-        \item טווח קצר - $P \uparrow \downarrow, \bar{W}$
+        \item טווח מיידי - $\overline{P} , \overline{W}$
+        \item טווח קצר - $P \uparrow \downarrow, \overline{W}$
         \item טווח ארוך - $P \uparrow \downarrow, W \uparrow \downarrow$
     \end{itemize}
 
@@ -107,9 +119,9 @@
             \node (EP) at (4, 1.5) {\(\frac{EP^*}{P} \downarrow\)};
             \node (M) at (4, 0) {\(\frac{M}{P} \downarrow\)};
             \node (W) at (4, -1.5) {\(\frac{W}{P} \downarrow\)};
-            \node (IS) at (8, 1.5) {\( IS \downarrow \,\, BP \downarrow \)};
-            \node (LM) at (8, 0) {\( LM \downarrow \)};
-            \node (AS) at (8, -1.5) {\( AS \downarrow \)};
+            \node (IS) at (8, 1.5) {\( IS \leftarrow \,\, BP \leftarrow \)};
+            \node (LM) at (8, 0) {\( LM \leftarrow \)};
+            \node (AS) at (8, -1.5) {\( AS \rightarrow \)};
             
             % Draw the arrows
             \draw[->, thick, blue] (Y) -- (P);
@@ -137,9 +149,9 @@
             \node (EP) at (4, 1.5) {\(\frac{EP^*}{P} \uparrow\)};
             \node (M) at (4, 0) {\(\frac{M}{P} \uparrow\)};
             \node (W) at (4, -1.5) {\(\frac{W}{P} \uparrow\)};
-            \node (IS) at (8, 1.5) {\( IS \uparrow \,\, BP \uparrow \)};
-            \node (LM) at (8, 0) {\( LM \uparrow \)};
-            \node (AS) at (8, -1.5) {\( AS \uparrow \)};
+            \node (IS) at (8, 1.5) {\( IS \rightarrow \,\, BP \rightarrow \)};
+            \node (LM) at (8, 0) {\( LM \rightarrow \)};
+            \node (AS) at (8, -1.5) {\( AS \leftarrow \)};
             
             % Draw the arrows
             \draw[->, thick, blue] (Y) -- (P);
@@ -164,9 +176,9 @@
             \node (EP1) at (4, 1.5) {\(\frac{EP^*}{P} \downarrow\)};
             \node (M1) at (4, 0) {\(\frac{M}{P} \downarrow\)};
             \node (W1) at (4, -1.5) {\(\frac{W}{P} \downarrow\)};
-            \node (IS1) at (8, 1.5) {\( IS \downarrow \,\, BP \downarrow \)};
-            \node (LM1) at (8, 0) {\( LM \downarrow \)};
-            \node (AS1) at (8, -1.5) {\( AS \downarrow \)};
+            \node (IS1) at (8, 1.5) {\( IS \leftarrow \,\, BP \leftarrow \)};
+            \node (LM1) at (8, 0) {\( LM \leftarrow \)};
+            \node (AS1) at (8, -1.5) {\( AS \rightarrow \)};
             
            
             
@@ -194,9 +206,9 @@
          \node (EP2) at (18, 1.5) {\(\frac{EP^*}{P} \uparrow\)};
          \node (M2) at (18, 0) {\(\frac{M}{P} \uparrow\)};
          \node (W2) at (18, -1.5) {\(\frac{W}{P} \uparrow\)};
-         \node (IS2) at (22, 1.5) {\( IS \uparrow \,\, BP \uparrow \)};
-         \node (LM2) at (22, 0) {\( LM \uparrow \)};
-         \node (AS2) at (22, -1.5) {\( AS \uparrow \)};
+         \node (IS2) at (22, 1.5) {\( IS \rightarrow \,\, BP \rightarrow \)};
+         \node (LM2) at (22, 0) {\( LM \rightarrow \)};
+         \node (AS2) at (22, -1.5) {\( AS \leftarrow \)};
 
 
           % Draw the arrows for right part
@@ -249,7 +261,7 @@
             \draw[->] (-0.5, 0) -- (0.5, 0);
             \node at (1, 0) {$\frac{M}{P} \downarrow$};
             \draw[->] (1.5, 0) -- (2.5, 0);
-            \node at (3, 0) {$LM \downarrow$};
+            \node at (3, 0) {$LM \leftarrow$};
         
             % Second part: Y < Yp
             \node at (6, 2) {$Y < Y_P$};
@@ -257,7 +269,7 @@
             \draw[->] (5.5, 0) -- (6.5, 0);
             \node at (7, 0) {$\frac{M}{P} \uparrow$};
             \draw[->] (7.5, 0) -- (8.5, 0);
-            \node at (9, 0) {$LM \uparrow$};
+            \node at (9, 0) {$LM \rightarrow$};
         \end{tikzpicture}
     \end{block}
     
@@ -270,7 +282,7 @@
             \draw[->] (-0, 0) -- (0.5, 0);
             \node at (1, 0) {$\frac{M}{P} \downarrow$};
             \draw[->] (1.5, 0) -- (2, 0);
-            \node at (2.5, 0) {$LM \downarrow$};
+            \node at (2.5, 0) {$LM \leftarrow$};
         
             % Second part: Y < Yp
             \node at (6, 2) {$Y < Y_P$};
@@ -278,7 +290,7 @@
             \draw[->] (6, 0) -- (6.5, 0);
             \node at (7, 0) {$\frac{M}{P} \uparrow$};
             \draw[->] (7.5, 0) -- (8, 0);
-            \node at (8.5, 0) {$LM \uparrow$};
+            \node at (8.5, 0) {$LM \rightarrow$};
         \end{tikzpicture}
     \end{block}
 
@@ -294,10 +306,10 @@
 \begin{frame}
     \frametitle{זעזועים פנימיים וחיצוניים}
     \begin{itemize}
-        \item שע''ח נייד מגן על המשק מזעזועים חיצוניים,  $$P^{\ *}\uparrow \implies E \downarrow \implies \frac{\overline{EP^{\ *}}}{P}$$ \\   מגן על פני אינפלציה בחו''ל
-        \item שע''ח נייד לא מגן בפני זעזועים פנימיים $$M_0 \downarrow \implies LM \uparrow \implies P \uparrow \implies LM\downarrow$$
-        \item שע''ח קבוע לא מגן על המשחק בפני זעזועים חיצוניים, הוא "מייבא אינפלציה מחו''ל" $$P^{\ *}\uparrow \implies P \uparrow \implies \frac{\overline{EP^{\ *}}}{P}$$
-        \item שע''ח קבוע מגן מזעזועים פנימיים $$M_0 \downarrow \implies LM \uparrow \implies M^s \downarrow \implies LM \downarrow$$
+        \item שע''ח נייד מגן על המשק מזעזועים חיצוניים,  $$P^{\ *}\uparrow \implies E \downarrow \implies \overline{\left(\frac{EP^{\, \ast}}{P}\right)}$$ \\   מגן על פני אינפלציה בחו''ל.
+        \item שע''ח נייד לא מגן בפני זעזועים פנימיים, $$M_0 \downarrow \implies LM \rightarrow \implies P \uparrow \implies LM\leftarrow$$
+        \item שע''ח קבוע לא מגן על המשחק בפני זעזועים חיצוניים, הוא "מייבא אינפלציה מחו''ל". $$P^{\, \ast}\uparrow \implies P \uparrow \implies \overline{\left(\frac{EP^{\, \ast}}{P}\right)}$$
+        \item שע''ח קבוע מגן מזעזועים פנימיים $$M_0 \downarrow \implies LM \rightarrow \implies M^s \downarrow \implies LM \leftarrow$$
     \end{itemize}
     
 
@@ -331,7 +343,7 @@
 
 \textbf{מתי איחוד מטבע מתאים?}
 
-איחוד מטבע מתאים למדינות אשר קיימים ביניהן מתאם גבוה במחזוריות המאזן הכלכלי. איחוד מטבע כופה על כל אותן המדינות מדיניות מוניטרית אחת אחידה ומדיניות פיסקלית אחידה (ממשלה אחת ומטבע אחד) ולכן באיחוד האירופי המדיניות הפיסקלית איננה אחידה אך המדיניות המוניטרית אחידה (ממשלות רבות ומטבע אחד)
+איחוד מטבע מתאים למדינות אשר קיימים ביניהן מתאם גבוה במחזוריות המאזן הכלכלי. איחוד מטבע כופה על כל אותן המדינות מדיניות מוניטרית אחת אחידה ומדיניות פיסקלית אחידה (ממשלה אחת ומטבע אחד) ולכן באיחוד האירופי המדיניות הפיסקלית איננה אחידה אך המדיניות המוניטרית אחידה (ממשלות רבות ומטבע אחד).
 \end{block}
     
 
